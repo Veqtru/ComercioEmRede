@@ -22,9 +22,9 @@ public class CatalogoActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerViewCatalogos;
     private CatalogoAdapter adapter;
-    private List<Catalogo> produtos;
+    private List<Catalogo> catalogos;
     private DatabaseReference referenciaFirebase;
-    private Catalogo todosProdutos;
+    private Catalogo todosCatalogos;
     private LinearLayoutManager mLayoutManagerTodosProdutos;
 
     @Override
@@ -32,7 +32,7 @@ public class CatalogoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogo);
 
-        mRecyclerViewCatalogos = (RecyclerView) findViewById(R.id.recylerViewTodosProdutos);
+        mRecyclerViewCatalogos = (RecyclerView) findViewById(R.id.recyclerViewTodosProdutos);
 
         carregarTodosProdutos();
     }
@@ -40,19 +40,25 @@ public class CatalogoActivity extends AppCompatActivity {
     private void carregarTodosProdutos() {
 
         mRecyclerViewCatalogos.setHasFixedSize(true);
+
         mLayoutManagerTodosProdutos = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+
         mRecyclerViewCatalogos.setLayoutManager(mLayoutManagerTodosProdutos);
-        produtos = new ArrayList<>();
+
+        catalogos = new ArrayList<>();
+
         referenciaFirebase = FirebaseDatabase.getInstance().getReference();
+
         referenciaFirebase.child("catalogo").orderByChild("nome").addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
 
-                    todosProdutos = postSnapshot.getValue(Catalogo.class);
+                    todosCatalogos = postSnapshot.getValue(Catalogo.class);
 
-                    produtos.add(todosProdutos);
+                    catalogos.add(todosCatalogos);
 
                 }
                 adapter.notifyDataSetChanged();
@@ -65,7 +71,7 @@ public class CatalogoActivity extends AppCompatActivity {
 
         });
 
-        adapter = new CatalogoAdapter(produtos, this);
+        adapter = new CatalogoAdapter(catalogos, this);
 
         mRecyclerViewCatalogos.setAdapter(adapter);
     }

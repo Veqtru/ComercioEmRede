@@ -31,7 +31,7 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.ViewHo
     private Context context;
     private DatabaseReference referenciaFirebase;
     private List<Catalogo> catalogos;
-    private Catalogo todos_produtos;
+    private Catalogo todosCatalogos;
 
     public CatalogoAdapter(List<Catalogo> l, Context c) {
         context = c;
@@ -60,16 +60,16 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.ViewHo
 
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
 
-                    todos_produtos = postSnapshot.getValue(Catalogo.class);
+                    todosCatalogos = postSnapshot.getValue(Catalogo.class);
 
-                    catalogos.add(todos_produtos);
+                    catalogos.add(todosCatalogos);
 
                     DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
 
                     final int height = (displayMetrics.heightPixels / 4);
                     final int width = (displayMetrics.widthPixels / 2);
 
-                    Picasso.with(context).load(todos_produtos.getUrlImage()).resize(width, height).centerCrop().into(holder.imgFotoPRO);
+                    Picasso.with(context).load(todosCatalogos.getUrlImage()).resize(width, height).centerCrop().into(holder.imgFotoPRO);
 
 
                 }
@@ -82,9 +82,9 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.ViewHo
         });
 
         holder.edtNomePRO.setText(item.getNome());
-        holder.edtPrecoPRO.setText(item.getNome());
-        holder.edtQuantidadePRO.setText(item.getNome());
-        holder.edtTipoPRO.setText(item.getNome());
+        holder.edtPrecoPRO.setText(item.getPreco());
+        holder.edtQuantidadePRO.setText(item.getQuantidade());
+        holder.edtTipoPRO.setText(item.getTipo());
 
         holder.linearLayoutPRO.setOnClickListener(new View.OnClickListener() {
             @Override
