@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutCatalogoprodutos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/imgFotoPRO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/edtNomePRO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nome_Produto"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/edtTipoPRO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="tipo de produto "
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/edtQuantidadePRO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quantidade_do_produto"
+                android:textSize="18dp"/>
+
+
+            <TextView
+                android:id="@+id/edtPrecoPRO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Preco"
+                android:textSize="18dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/colorWhite"
+        android:focusable="false" />
+
+
+
+
+</LinearLayout>

@@ -37,7 +37,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent it = new Intent(SplashScreen.this, TelaInicial.class);
+                Intent it = new Intent(SplashScreen.this, CatalogoActivity.class);
                 startActivity(it);
                 finish();
 
