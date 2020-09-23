@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/botao_redondo_solido_azul"
         android:text="@string/cadastrar_cli"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

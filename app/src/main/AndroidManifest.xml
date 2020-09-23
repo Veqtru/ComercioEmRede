@@ -15,14 +15,11 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.RedirectLogin"></activity>
+        <activity android:name=".activity.RedirectCadastro"></activity>
         <activity
             android:name=".activity.TelaPrincipal"
-            android:label="@string/title_activity_tela_principal"
-            android:theme="@style/NoActionBar"></activity>
-        <activity
-            android:name=".activity.TelaInicial"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
+            android:label="@string/title_activity_tela_principal" />
         <activity
             android:name=".activity.TelaRecuperarSenha"
             android:screenOrientation="portrait"
