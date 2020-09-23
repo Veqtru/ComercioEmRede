@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:screenOrientation="portrait"
-    tools:context=".view.TelaLoginLOJ">
+    tools:context=".activity.TelaLoginLOJ">
 
     <Button
         android:id="@+id/bttnLoginLOJ"

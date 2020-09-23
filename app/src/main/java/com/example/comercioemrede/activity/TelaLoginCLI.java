@@ -1,4 +1,4 @@
-package com.example.comercioemrede.view;
+package com.example.comercioemrede.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,26 +12,26 @@ import android.widget.Toast;
 
 import com.example.comercioemrede.R;
 import com.example.comercioemrede.helper.ConfiguracaoFirebase;
-import com.example.comercioemrede.model.Lojista;
+import com.example.comercioemrede.model.Cliente;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class TelaLoginLOJ extends AppCompatActivity {
+public class TelaLoginCLI extends AppCompatActivity {
 
 
     private EditText edtEmail;
     private EditText edtSenha;
     private Button bttnLogin;
 
-    private Lojista lojista;
+    private Cliente cliente;
     private FirebaseAuth autenticacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_login_loj);
+        setContentView(R.layout.activity_tela_login_cli);
 
         inicializarComponentes();
 
@@ -39,21 +39,21 @@ public class TelaLoginLOJ extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String emailLOJ = edtEmail.getText().toString();
-                String senhaLOJ = edtSenha.getText().toString();
+                String emailCLI = edtEmail.getText().toString();
+                String senhaCLI = edtSenha.getText().toString();
 
-                if ( !emailLOJ.isEmpty() ){
-                    if ( !senhaLOJ.isEmpty() ){
+                if ( !emailCLI.isEmpty() ){
+                    if ( !senhaCLI.isEmpty() ){
 
-                        lojista = new Lojista();
-                        lojista.setEmail( emailLOJ );
-                        lojista.setSenha( senhaLOJ );
-                        validarLogin(lojista);
+                        cliente = new Cliente();
+                        cliente.setEmail( emailCLI );
+                        cliente.setSenha( senhaCLI );
+                        validarLogin(cliente);
 
 
 
                     }else{
-                        Toast.makeText(TelaLoginLOJ.this,
+                        Toast.makeText(TelaLoginCLI.this,
                                 "Preencha a senha",
                                 Toast.LENGTH_SHORT).show();
                     }
@@ -61,7 +61,7 @@ public class TelaLoginLOJ extends AppCompatActivity {
 
 
                 }else{
-                    Toast.makeText(TelaLoginLOJ.this,
+                    Toast.makeText(TelaLoginCLI.this,
                             "Preencha o email!",
                             Toast.LENGTH_SHORT).show();
                 }
@@ -71,14 +71,14 @@ public class TelaLoginLOJ extends AppCompatActivity {
 
     }
 
-    public void validarLogin( Lojista lojista ){
+    public void validarLogin( Cliente cliente ){
 
         autenticacao = ConfiguracaoFirebase.getReferenciaAutenticacao();
 
 
         autenticacao.signInWithEmailAndPassword(
-                lojista.getEmail(),
-                lojista.getSenha()
+                cliente.getEmail(),
+                cliente.getSenha()
 
         ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -86,12 +86,12 @@ public class TelaLoginLOJ extends AppCompatActivity {
 
                 if ( task.isSuccessful() ){
 
-                    startActivity(new Intent(TelaLoginLOJ.this, TelaPrincipal.class));
+                    startActivity(new Intent(TelaLoginCLI.this, TelaPrincipal.class));
                     finish();
 
                 }else{
 
-                    Toast.makeText(TelaLoginLOJ.this,
+                    Toast.makeText(TelaLoginCLI.this,
                             "Email ou senha incorreta(o) " ,
                             Toast.LENGTH_SHORT).show();
 
@@ -103,18 +103,18 @@ public class TelaLoginLOJ extends AppCompatActivity {
     }
 
     public void recuperarSenha(View view){
-        Intent i = new Intent(TelaLoginLOJ.this, TelaRecuperarSenha.class);
+        Intent i = new Intent(TelaLoginCLI.this, TelaRecuperarSenha.class);
         startActivity( i );
     }
 
-    public void abrirCadastroLOJ(View view){
-        Intent i = new Intent(TelaLoginLOJ.this, TelaCadastroLOJ.class);
+    public void abrirCadastroCLI(View view){
+        Intent i = new Intent(TelaLoginCLI.this, TelaCadastroCLI.class);
         startActivity( i );
     }
 
     public void inicializarComponentes() {
-        edtEmail = findViewById(R.id.emailLoginLOJ);
-        edtSenha = findViewById(R.id.senhaLoginLOJ);
-        bttnLogin = findViewById(R.id.bttnLoginLOJ);
+        edtEmail = findViewById(R.id.emailLoginCLI);
+        edtSenha = findViewById(R.id.senhaLoginCLI);
+        bttnLogin = findViewById(R.id.bttnLoginCLI);
     }
 }

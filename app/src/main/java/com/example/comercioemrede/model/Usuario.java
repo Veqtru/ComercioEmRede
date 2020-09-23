@@ -12,7 +12,6 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private String telefone;
 
 
     public Usuario() {
@@ -24,7 +23,6 @@ public class Usuario {
             this.nome=nome;
             this.senha=senha;
             this.email=email;
-            this.telefone=telefone;
 
 }
 
@@ -35,7 +33,6 @@ public class Usuario {
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
-                ", telefone='" + telefone + '\'' +
                 '}';
     }
 
@@ -72,11 +69,4 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
 }

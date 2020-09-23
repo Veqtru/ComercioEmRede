@@ -1,4 +1,4 @@
-package com.example.comercioemrede.view;
+package com.example.comercioemrede.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

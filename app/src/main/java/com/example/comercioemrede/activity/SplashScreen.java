@@ -1,4 +1,4 @@
-package com.example.comercioemrede.view;
+package com.example.comercioemrede.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,7 +37,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent it = new Intent(SplashScreen.this, CatalogoActivity.class);
+                Intent it = new Intent(SplashScreen.this, TelaPrincipal.class);
                 startActivity(it);
                 finish();
 

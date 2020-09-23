@@ -11,6 +11,7 @@ public class Lojista extends Usuario {
 
     private String cnpj;
     private String endereco;
+    private String telefone;
 
     public Lojista() {
     }
@@ -25,6 +26,7 @@ public class Lojista extends Usuario {
     public Lojista(String cnpj, String endereco){
         this.cnpj = cnpj;
         this.endereco = endereco;
+        this.telefone=telefone;
     }
 
     @Override
@@ -32,6 +34,7 @@ public class Lojista extends Usuario {
         return "Lojista{" +
                 "cnpj='" + cnpj + '\'' +
                 ", endereco='" + endereco + '\'' +
+                ", telefone='" + telefone + '\'' +
                 '}';
     }
 
@@ -49,5 +52,13 @@ public class Lojista extends Usuario {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }

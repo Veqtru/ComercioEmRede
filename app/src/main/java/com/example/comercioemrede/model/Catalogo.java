@@ -8,6 +8,8 @@ public class Catalogo {
     private String quantidade;
     private String preco;
     private String urlImage;
+    private String oferta;
+    private String validadeOferta;
 
     public String getKeyProduto() {
         return keyProduto;
@@ -55,5 +57,21 @@ public class Catalogo {
 
     public void setUrlImage(String urlImage) {
         this.urlImage = urlImage;
+    }
+
+    public String getOferta() {
+        return oferta;
+    }
+
+    public void setOferta(String oferta) {
+        this.oferta = oferta;
+    }
+
+    public String getValidadeOferta() {
+        return validadeOferta;
+    }
+
+    public void setValidadeOferta(String validadeOferta) {
+        this.validadeOferta = validadeOferta;
     }
 }

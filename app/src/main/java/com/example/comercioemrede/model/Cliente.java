@@ -9,7 +9,6 @@ public class Cliente extends Usuario {
         super(_cod_usu, _nome, _email, _senha, _telefone);
     }
 
-    private String cpf;
     private String localizacao;
 
 
@@ -23,13 +22,7 @@ public class Cliente extends Usuario {
     }
 
 
-    public String getCpf() {
-        return cpf;
-    }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
 
     public String getLocalizacao() {
         return localizacao;

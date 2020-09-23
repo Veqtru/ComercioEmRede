@@ -1,4 +1,4 @@
-package com.example.comercioemrede.view;
+package com.example.comercioemrede.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Switch;
 
 import com.example.comercioemrede.R;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class TelaInicial extends AppCompatActivity {
 

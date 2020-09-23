@@ -1,4 +1,4 @@
-package com.example.comercioemrede.view;
+package com.example.comercioemrede.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,10 +27,8 @@ public class TelaCadastroCLI extends AppCompatActivity {
 
     private EditText edtNome;
     private EditText edtEmail;
-    private EditText edtTelefone;
     private EditText edtSenha;
     private EditText edtConfirmarSenha;
-    private EditText edtCpf;
     private Button bttnCadastro;
 
     private Cliente cliente;
@@ -49,26 +47,20 @@ public class TelaCadastroCLI extends AppCompatActivity {
 
                 String nomeCLI = edtNome.getText().toString();
                 String emailCLI = edtEmail.getText().toString();
-                String telefoneCLI = edtTelefone.getText().toString();
                 String senhaCLI = edtSenha.getText().toString();
                 String confirmarSenhaCLI = edtConfirmarSenha.getText().toString();
-                String cpfCLI = edtCpf.getText().toString();
 
 
                 if ( !nomeCLI.isEmpty() ){
                     if ( !emailCLI.isEmpty() ){
-                        if ( !telefoneCLI.isEmpty() ){
                             if ( !senhaCLI.isEmpty() ){
                                 if ( !confirmarSenhaCLI.isEmpty() ){
-                                    if ( !cpfCLI.isEmpty() ){
                                         if ( confirmarSenhaCLI.equals(senhaCLI) ) {
 
                                             cliente = new Cliente();
                                             cliente.setNome(nomeCLI);
                                             cliente.setEmail(emailCLI);
                                             cliente.setSenha(senhaCLI);
-                                            cliente.setTelefone(telefoneCLI);
-                                            cliente.setCpf(cpfCLI);
                                             cadastrar(cliente);
 
                                         }else {
@@ -80,12 +72,6 @@ public class TelaCadastroCLI extends AppCompatActivity {
 
 
                                     }else{
-                                        Toast.makeText(TelaCadastroCLI.this,
-                                                "Preencha o cpf!",
-                                                Toast.LENGTH_SHORT).show();
-                                    }
-
-                                }else{
                                     Toast.makeText(TelaCadastroCLI.this,
                                             "Preencha a senha!",
                                             Toast.LENGTH_SHORT).show();
@@ -97,12 +83,6 @@ public class TelaCadastroCLI extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                             }
                         }else{
-                            Toast.makeText(TelaCadastroCLI.this,
-                                    "Preencha o telefone!",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-
-                    }else{
                         Toast.makeText(TelaCadastroCLI.this,
                                 "Preencha o email!",
                                 Toast.LENGTH_SHORT).show();
@@ -181,10 +161,8 @@ public class TelaCadastroCLI extends AppCompatActivity {
     public void inicializarComponentes(){
             edtNome = findViewById(R.id.nomeCLI);
             edtEmail = findViewById(R.id.emailLoginCLI);
-            edtTelefone = findViewById(R.id.telefoneCLI);
             edtSenha = findViewById(R.id.senhaLoginCLI);
             edtConfirmarSenha = findViewById(R.id.confirmarSenhaCLI);
-            edtCpf = findViewById(R.id.cpfCLI);
             bttnCadastro = findViewById(R.id.bttnCadastroCLI);
 
 

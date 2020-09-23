@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:screenOrientation="portrait"
-    tools:context=".view.TelaCadastroLOJ">
+    tools:context=".activity.TelaCadastroLOJ">
 
     <Button
         android:id="@+id/bttnCadastroLOJ"
@@ -48,146 +48,6 @@
         app:layout_constraintVertical_bias="0.027"
         app:srcCompat="@drawable/logon" />
 
-    <EditText
-        android:id="@+id/nomeLOJ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/nome_da_loja"
-        android:imeOptions="actionNext"
-        android:inputType="textPersonName"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.331" />
-
-    <EditText
-        android:id="@+id/emailLoginLOJ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/email"
-        android:imeOptions="actionNext"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.411" />
-
-    <EditText
-        android:id="@+id/telefoneLOJ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/telefoneCLI"
-        android:imeOptions="actionNext"
-        android:inputType="phone"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.491" />
-
-    <EditText
-        android:id="@+id/cnpjLOJ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/cnpj"
-        android:imeOptions="actionNext"
-        android:inputType="number"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.571" />
-
-    <EditText
-        android:id="@+id/enderecoLOJ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/cep"
-        android:imeOptions="actionNext"
-        android:inputType="number"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.651" />
-
-    <EditText
-        android:id="@+id/senhaLoginLOJ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/senhaCLI"
-        android:imeOptions="actionNext"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731" />
-
-    <EditText
-        android:id="@+id/confirmarSenhaLOJ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/confirmar_senhaCLI"
-        android:imeOptions="actionNext"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.811" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -216,6 +76,158 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.954" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bttnCadastroLOJ"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.94">
+
+        <EditText
+            android:id="@+id/nomeLOJ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+
+            android:drawableBottom="@drawable/linha_azul"
+            android:hint="@string/nome_da_loja"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"
+            android:selectAllOnFocus="true"
+            android:textColor="#000000"
+            android:textColorHint="@color/colorSafeBlue"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.331" />
+
+        <EditText
+            android:id="@+id/emailLoginLOJ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+
+            android:drawableBottom="@drawable/linha_azul"
+            android:hint="@string/email"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="true"
+            android:textColor="#000000"
+            android:textColorHint="@color/colorSafeBlue"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.411" />
+
+        <EditText
+            android:id="@+id/telefoneLOJ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+
+            android:drawableBottom="@drawable/linha_azul"
+            android:hint="@string/telefoneCLI"
+            android:imeOptions="actionNext"
+            android:inputType="phone"
+            android:selectAllOnFocus="true"
+            android:textColor="#000000"
+            android:textColorHint="@color/colorSafeBlue"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.491" />
+
+        <EditText
+            android:id="@+id/cnpjLOJ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+
+            android:drawableBottom="@drawable/linha_azul"
+            android:hint="@string/cnpj"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:selectAllOnFocus="true"
+            android:textColor="#000000"
+            android:textColorHint="@color/colorSafeBlue"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.571" />
+
+        <EditText
+            android:id="@+id/enderecoLOJ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+
+            android:drawableBottom="@drawable/linha_azul"
+            android:hint="@string/cep"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:selectAllOnFocus="true"
+            android:textColor="#000000"
+            android:textColorHint="@color/colorSafeBlue"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.651" />
+
+        <EditText
+            android:id="@+id/senhaLoginLOJ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+
+            android:drawableBottom="@drawable/linha_azul"
+            android:hint="@string/senhaCLI"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
+            android:textColor="#000000"
+            android:textColorHint="@color/colorSafeBlue"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.731" />
+
+        <EditText
+            android:id="@+id/confirmarSenhaLOJ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+
+            android:drawableBottom="@drawable/linha_azul"
+            android:hint="@string/confirmar_senhaCLI"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
+            android:textColor="#000000"
+            android:textColorHint="@color/colorSafeBlue"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.811" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

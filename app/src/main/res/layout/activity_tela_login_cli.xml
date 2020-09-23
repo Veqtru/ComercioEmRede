@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:screenOrientation="portrait"
-    tools:context=".view.TelaLoginCLI">
+    tools:context=".activity.TelaLoginCLI">
 
     <Button
         android:id="@+id/bttnLoginCLI"

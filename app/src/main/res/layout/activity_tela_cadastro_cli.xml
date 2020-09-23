@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:screenOrientation="portrait"
-    tools:context=".view.TelaCadastroCLI">
+    tools:context=".activity.TelaCadastroCLI">
 
 
     <Button
@@ -48,128 +48,6 @@
         app:layout_constraintVertical_bias="0.027"
         app:srcCompat="@drawable/logon" />
 
-    <EditText
-        android:id="@+id/cpfCLI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:autofillHints=""
-
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/cpfCLI"
-        android:imeOptions="actionNext"
-        android:inputType="number"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.571" />
-
-    <EditText
-        android:id="@+id/nomeCLI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:autofillHints=""
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/nome"
-        android:imeOptions="actionNext"
-        android:inputType="textPersonName"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.331" />
-
-    <EditText
-        android:id="@+id/emailLoginCLI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:autofillHints=""
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/email"
-        android:imeOptions="actionNext"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.411" />
-
-    <EditText
-        android:id="@+id/telefoneCLI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:autofillHints=""
-
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/telefoneCLI"
-        android:imeOptions="actionNext"
-        android:inputType="phone"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.491" />
-
-    <EditText
-        android:id="@+id/senhaLoginCLI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/senhaCLI"
-        android:imeOptions="actionNext"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.651" />
-
-    <EditText
-        android:id="@+id/confirmarSenhaCLI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/confirmar_senhaCLI"
-        android:imeOptions="actionNext"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -198,6 +76,77 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.954" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bttnCadastroCLI"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.56">
+
+        <EditText
+            android:id="@+id/nomeCLI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:autofillHints=""
+            android:drawableBottom="@drawable/linha_azul"
+            android:hint="@string/nome"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"
+            android:selectAllOnFocus="true"
+            android:textColor="#000000"
+            android:textColorHint="@color/colorSafeBlue"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/emailLoginCLI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:autofillHints=""
+            android:drawableBottom="@drawable/linha_azul"
+            android:hint="@string/email"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="true"
+            android:textColor="#000000"
+            android:textColorHint="@color/colorSafeBlue"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/senhaLoginCLI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+
+            android:drawableBottom="@drawable/linha_azul"
+            android:hint="@string/senhaCLI"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
+            android:textColor="#000000"
+            android:textColorHint="@color/colorSafeBlue"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/confirmarSenhaCLI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+
+            android:drawableBottom="@drawable/linha_azul"
+            android:hint="@string/confirmar_senhaCLI"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
+            android:textColor="#000000"
+            android:textColorHint="@color/colorSafeBlue"
+            android:textSize="22sp" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

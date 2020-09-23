@@ -1,4 +1,4 @@
-package com.example.comercioemrede.view;
+package com.example.comercioemrede.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,17 @@ import android.os.Bundle;
 
 import com.example.comercioemrede.R;
 
-public class TelaPrincipal extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_principal);
+        setContentView(R.layout.activity_main);
+
+
+
+
+
     }
 }
