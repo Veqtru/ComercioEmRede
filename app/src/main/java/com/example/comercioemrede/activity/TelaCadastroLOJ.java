@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.comercioemrede.R;
 import com.example.comercioemrede.helper.ConfiguracaoFirebase;
-import com.example.comercioemrede.model.Lojista;
+import com.example.comercioemrede.controller.Lojista;
 
 
 import com.google.android.gms.tasks.OnCompleteListener;

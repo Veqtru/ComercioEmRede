@@ -43,5 +43,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.3.3'
     implementation 'com.google.firebase:firebase-storage:19.1.1'
 
+    implementation 'com.github.BlackCat27:CurrencyEditText:2.0.2'
+
 }
 apply plugin: 'com.google.gms.google-services'

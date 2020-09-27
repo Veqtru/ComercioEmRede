@@ -47,4 +47,9 @@
         android:name="com.example.comercioemrede.fragment.Favoritos"
         android:label="@string/fragment_favoritos"
         tools:layout="@layout/fragment_favoritos" />
+    <fragment
+        android:id="@+id/nav_produtos"
+        android:name="com.example.comercioemrede.fragment.MeusProdutos"
+        android:label="@string/fragment_meus_produtos"
+        tools:layout="@layout/fragment_meus_produtos" />
 </navigation>

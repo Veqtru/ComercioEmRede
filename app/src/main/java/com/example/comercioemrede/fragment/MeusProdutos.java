@@ -1,14 +1,24 @@
-package com.example.comercioemrede.activity;
+package com.example.comercioemrede.fragment;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
-import com.example.comercioemrede.adapter.CatalogoAdapter;
 import com.example.comercioemrede.R;
+import com.example.comercioemrede.activity.RedirectCadastro;
+import com.example.comercioemrede.activity.TelaCadastroPRO;
+import com.example.comercioemrede.activity.TelaPrincipal;
+import com.example.comercioemrede.adapter.CatalogoAdapter;
 import com.example.comercioemrede.controller.Catalogo;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,7 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CatalogoActivity extends AppCompatActivity {
+
+public class MeusProdutos extends Fragment {
 
     private RecyclerView mRecyclerViewCatalogos;
     private CatalogoAdapter adapter;
@@ -27,21 +38,41 @@ public class CatalogoActivity extends AppCompatActivity {
     private Catalogo todosCatalogos;
     private LinearLayoutManager mLayoutManagerTodosProdutos;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_catalogo);
-
-        mRecyclerViewCatalogos = (RecyclerView) findViewById(R.id.recyclerViewTodosProdutos);
-
-        carregarTodosProdutos();
+    public MeusProdutos() {
+        // Required empty public constructor
     }
 
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_meus_produtos, container,false);
+
+        mRecyclerViewCatalogos = (RecyclerView) view.findViewById(R.id.recyclerViewTodosProdutos);
+        carregarTodosProdutos();
+
+        FloatingActionButton Adicionar = (FloatingActionButton) view.findViewById(R.id.fabAdicionar);
+        Adicionar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(getActivity(), TelaCadastroPRO.class);
+                it.putExtra("some","some data");
+                startActivity(it);
+            }
+        });
+        return view;
+        }
     private void carregarTodosProdutos() {
 
         mRecyclerViewCatalogos.setHasFixedSize(true);
 
-        mLayoutManagerTodosProdutos = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        mLayoutManagerTodosProdutos = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 
         mRecyclerViewCatalogos.setLayoutManager(mLayoutManagerTodosProdutos);
 
@@ -71,8 +102,10 @@ public class CatalogoActivity extends AppCompatActivity {
 
         });
 
-        adapter = new CatalogoAdapter(catalogos, this);
+        adapter = new CatalogoAdapter(catalogos, getContext());
 
         mRecyclerViewCatalogos.setAdapter(adapter);
     }
+
 }
+

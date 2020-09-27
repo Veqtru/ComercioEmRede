@@ -4,6 +4,8 @@
     package="com.example.comercioemrede">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -15,8 +17,8 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.RedirectLogin"></activity>
-        <activity android:name=".activity.RedirectCadastro"></activity>
+        <activity android:name=".activity.RedirectLogin" />
+        <activity android:name=".activity.RedirectCadastro" />
         <activity
             android:name=".activity.TelaPrincipal"
             android:label="@string/title_activity_tela_principal" />
@@ -26,8 +28,10 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".activity.TelaCadastroPRO"
+            android:label="Cadastrar Produtos"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
+            android:theme="@style/AppTheme.ActionBar"
+            tools:ignore="LockedOrientationActivity"/>
         <activity
             android:name=".activity.TelaLoginLOJ"
             android:screenOrientation="portrait"
@@ -38,10 +42,6 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".activity.TelaLoginCLI"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".activity.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity

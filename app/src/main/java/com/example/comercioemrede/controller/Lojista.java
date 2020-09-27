@@ -1,4 +1,4 @@
-package com.example.comercioemrede.model;
+package com.example.comercioemrede.controller;
 
 import com.example.comercioemrede.helper.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;

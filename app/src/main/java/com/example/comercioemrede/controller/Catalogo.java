@@ -1,15 +1,36 @@
-package com.example.comercioemrede.model;
+package com.example.comercioemrede.controller;
+
+import com.example.comercioemrede.helper.ConfiguracaoFirebase;
+import com.google.firebase.database.DatabaseReference;
+
+import java.util.List;
 
 public class Catalogo {
 
     private String keyProduto;
     private String nome;
     private String tipo;
-    private String quantidade;
     private String preco;
     private String urlImage;
     private String oferta;
     private String validadeOferta;
+    private List<String> fotos;
+
+    public Catalogo(){
+        DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase()
+                .child("catalogo");
+        setKeyProduto(databaseReference.push().getKey());
+
+    }
+    public void salvar(){
+
+        String idUsuario = ConfiguracaoFirebase.getIdUsuario();
+        DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase()
+                .child("catalogo");
+        databaseReference.child(idUsuario)
+                .child(getKeyProduto())
+                .setValue(this);
+    }
 
     public String getKeyProduto() {
         return keyProduto;
@@ -33,14 +54,6 @@ public class Catalogo {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public String getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(String quantidade) {
-        this.quantidade = quantidade;
     }
 
     public String getPreco() {
@@ -73,5 +86,13 @@ public class Catalogo {
 
     public void setValidadeOferta(String validadeOferta) {
         this.validadeOferta = validadeOferta;
+    }
+
+    public List<String> getFotos() {
+        return fotos;
+    }
+
+    public void setFotos(List<String> fotos) {
+        this.fotos = fotos;
     }
 }

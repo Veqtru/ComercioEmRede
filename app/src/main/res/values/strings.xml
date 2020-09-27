@@ -47,6 +47,7 @@
 
     <string name="inicio_second">Início Second</string>
     <string name="fragment_inicio">Início</string>
+    <string name="fragment_meus_produtos">Meus Produtos</string>
     <string name="fragment_buscar">Buscar</string>
     <string name="fragment_historico">Histórico</string>
     <string name="fragment_favoritos">Favoritos</string>
@@ -72,4 +73,15 @@
 
     <string name="sou_comerciante">Sou Comerciante</string>
     <string name="sou_cliente">Sou Cliente</string>
+
+    <string-array name="tipo">
+        <item>BEBIDAS</item>
+        <item>CARNES</item>
+        <item>GULOSEIMAS</item>
+        <item>HIGIENE</item>
+        <item>HORTIFRUTI</item>
+        <item>LIMPEZA</item>
+        <item>NÃO PERECÍVEIS</item>
+        <item>PADARIA</item>
+    </string-array>
 </resources>

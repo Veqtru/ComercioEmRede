@@ -47,14 +47,6 @@
                 android:textSize="18dp"/>
 
             <TextView
-                android:id="@+id/edtQuantidadePRO"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Quantidade_do_produto"
-                android:textSize="18dp"/>
-
-
-            <TextView
                 android:id="@+id/edtPrecoPRO"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

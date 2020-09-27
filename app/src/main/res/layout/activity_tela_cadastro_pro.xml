@@ -1,142 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context="com.example.comercioemrede.activity.TelaCadastroPRO">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="56dp"
-        android:text="@string/cadastrar_produto"
-        android:textColor="@color/colorSafeBlue"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/imgFotoPRO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/imgFotoPRO"
-        android:layout_width="245dp"
-        android:layout_height="245dp"
-        android:contentDescription="@string/todo"
-        app:layout_constraintBottom_toTopOf="@+id/btnEnviarFotoPRO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@android:mipmap/sym_def_app_icon" />
+        <ImageView
+            android:id="@+id/imgCadastro1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/padrao" />
 
-    <EditText
-        android:id="@+id/edtNomePRO"
+        <ImageView
+            android:id="@+id/imgCadastro2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/padrao" />
+
+        <ImageView
+            android:id="@+id/imgCadastro3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/padrao" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:autofillHints=""
-        android:drawableBottom="@drawable/linha_azul"
-        android:ems="10"
-        android:hint="@string/nome_do_produto"
-        android:inputType="textPersonName"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtTipoPRO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEnviarFotoPRO" />
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/edtTipoPRO"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:autofillHints=""
-        android:drawableBottom="@drawable/linha_azul"
-        android:ems="10"
-        android:hint="@string/tipo_de_produto"
-        android:inputType="textMultiLine"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtQuantidadePRO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtNomePRO" />
+        <Spinner
+            android:id="@+id/spTipoPRO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/edtQuantidadePRO"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:autofillHints=""
-        android:drawableBottom="@drawable/linha_azul"
-        android:ems="10"
-        android:hint="@string/quantidade_do_produto"
-        android:inputType="textPersonName"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtPrecoPRO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTipoPRO" />
-
-    <EditText
-        android:id="@+id/edtPrecoPRO"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:autofillHints=""
-        android:drawableBottom="@drawable/linha_azul"
-        android:ems="10"
-        android:hint="@string/preco_do_produto"
-        android:inputType="textPersonName"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSalvarPRO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtQuantidadePRO" />
-
-    <Button
-        android:id="@+id/btnEnviarFotoPRO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/botao_redondo_solido_azul"
-        android:text="@string/enviar_foto"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtNomePRO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgFotoPRO" />
-
-    <Button
-        android:id="@+id/btnSalvarPRO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/botao_redondo_solido_azul"
-        android:text="@string/salvar_produto"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPrecoPRO" />
+        <EditText
+            android:id="@+id/edtNomePRO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_edit_text"
+            android:ems="10"
+            android:hint="Nome"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.blackcat.currencyedittext.CurrencyEditText
+            android:id="@+id/edtPrecoPRO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_edit_text"
+            android:ems="10"
+            android:hint="Preço"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            />
+
+        <EditText
+            android:id="@+id/edtDescricaoPRO"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_edit_text"
+            android:ems="10"
+            android:hint="Descrição"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/btnCadastrarPRO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/botao_redondo_solido_azul"
+            android:onClick="validarDados"
+            android:text="CADASTRAR"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+
+</LinearLayout>

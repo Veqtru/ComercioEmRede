@@ -1,4 +1,4 @@
-package com.example.comercioemrede.model;
+package com.example.comercioemrede.controller;
 
 public class Produto {
     private Integer cod_pro;

@@ -1,5 +1,4 @@
 package com.example.comercioemrede.adapter;
-//cardapio = catalago
 
 import android.content.Context;
 import android.util.DisplayMetrics;
@@ -14,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.comercioemrede.R;
-import com.example.comercioemrede.model.Catalogo;
+import com.example.comercioemrede.controller.Catalogo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -83,7 +82,6 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.ViewHo
 
         holder.edtNomePRO.setText(item.getNome());
         holder.edtPrecoPRO.setText(item.getPreco());
-        holder.edtQuantidadePRO.setText(item.getQuantidade());
         holder.edtTipoPRO.setText(item.getTipo());
 
         holder.linearLayoutPRO.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +102,6 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.ViewHo
 
         protected TextView edtNomePRO;
         protected TextView edtTipoPRO;
-        protected TextView edtQuantidadePRO;
         protected TextView edtPrecoPRO;
         protected ImageView imgFotoPRO;
         protected LinearLayout linearLayoutPRO;
@@ -114,7 +111,6 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.ViewHo
 
             edtNomePRO = (TextView)itemView.findViewById(R.id.edtNomePRO);
             edtTipoPRO = (TextView)itemView.findViewById(R.id.edtTipoPRO);
-            edtQuantidadePRO = (TextView)itemView.findViewById(R.id.edtQuantidadePRO);
             edtPrecoPRO = (TextView)itemView.findViewById(R.id.edtPrecoPRO);
             imgFotoPRO = (ImageView)itemView.findViewById(R.id.imgFotoPRO);
             linearLayoutPRO = (LinearLayout)itemView.findViewById(R.id.linearLayoutCatalogoprodutos);

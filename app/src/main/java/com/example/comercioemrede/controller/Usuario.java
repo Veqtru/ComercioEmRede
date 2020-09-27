@@ -1,9 +1,5 @@
-package com.example.comercioemrede.model;
+package com.example.comercioemrede.controller;
 
-import android.provider.ContactsContract;
-
-import com.example.comercioemrede.helper.ConfiguracaoFirebase;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
 public class Usuario {
