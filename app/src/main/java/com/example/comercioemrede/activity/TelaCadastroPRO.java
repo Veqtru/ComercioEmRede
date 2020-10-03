@@ -2,6 +2,7 @@ package com.example.comercioemrede.activity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,7 +20,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blackcat.currencyedittext.CurrencyEditText;
@@ -41,6 +41,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import dmax.dialog.SpotsDialog;
+
 
 public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickListener {
 
@@ -48,8 +50,7 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
     private EditText edtNomePRO, edtDescricaoPRO;
     private CurrencyEditText edtPrecoPRO;
     private ImageView imgCadastro1, imgCadastro2, imgCadastro3;
-    private Button btnCdastrarPRO;
-
+    private AlertDialog dialog;
 
     private Catalogo catalogo;
 
@@ -78,6 +79,13 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
 
     }
     public void cadastrarProduto(){
+
+        dialog = new SpotsDialog.Builder()
+                .setContext( this )
+                .setMessage("Salvando Produto")
+                .setCancelable( false )
+                .build();
+        dialog.show();
 
         for (int i=0; i < listaFotosRecuperadas.size(); i++){
             String urlImagem = listaFotosRecuperadas.get(i);
@@ -109,6 +117,9 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
                         if ( totalFotos == listaURLFotos.size() ){
                             catalogo.setFotos( listaURLFotos );
                             catalogo.salvar();
+
+                            dialog.dismiss();
+                            finish();
                         }
                     }
                 });
@@ -136,12 +147,14 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
     }
     public void validarDados(View view){
 
+        String preco = String.valueOf(edtPrecoPRO.getRawValue());
+
         catalogo = configurarProduto();
 
         if ( listaFotosRecuperadas.size() != 0 ){
             if ( !catalogo.getTipo().isEmpty() ){
                 if ( !catalogo.getNome().isEmpty() ){
-                    if ( !catalogo.getPreco().isEmpty() && !catalogo.getPreco().equals("0") ){
+                    if ( !preco.isEmpty() && !preco.equals("0") ){
                         cadastrarProduto();
                     }else {
                         exibirMensagemErro("Preencha o campo preço!");
@@ -220,7 +233,6 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
         edtDescricaoPRO = findViewById(R.id.edtDescricaoPRO);
         edtPrecoPRO = findViewById(R.id.edtPrecoPRO);
         spTipoPRO = findViewById(R.id.spTipoPRO);
-        btnCdastrarPRO = findViewById(R.id.btnCadastrarPRO);
         imgCadastro1 = findViewById(R.id.imgCadastro1);
         imgCadastro2 = findViewById(R.id.imgCadastro2);
         imgCadastro3 = findViewById(R.id.imgCadastro3);

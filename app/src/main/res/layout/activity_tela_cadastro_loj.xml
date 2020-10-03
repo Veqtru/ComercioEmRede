@@ -4,230 +4,156 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    android:screenOrientation="portrait"
+    android:background="@drawable/wave_bg_2"
     tools:context=".activity.TelaCadastroLOJ">
 
-    <Button
-        android:id="@+id/bttnCadastroLOJ"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/botao_redondo_solido_azul"
-        android:text="@string/cadastrar_cli"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.900
-" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="461dp"
-        android:layout_height="240dp"
-        android:contentDescription="@string/bgRC"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/wave_bg_2" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="299sp"
-        android:layout_height="147sp"
-        android:contentDescription="@string/logoRC"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.027"
         app:srcCompat="@drawable/logon" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="abrirLoginLOJ"
-        android:text="@string/fazer_login"
-        android:textColor="#0027FF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.777"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ja_possui_uma_conta"
-        android:textColor="#6E6E6E"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.264"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954" />
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/botao_redondo_solido"
+        android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/bttnCadastroLOJ"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.94">
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <EditText
             android:id="@+id/nomeLOJ"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints=""
-
-            android:drawableBottom="@drawable/linha_azul"
-            android:hint="@string/nome_da_loja"
+            android:hint="NOME DA LOJA"
             android:imeOptions="actionNext"
             android:inputType="textPersonName"
             android:selectAllOnFocus="true"
             android:textColor="#000000"
-            android:textColorHint="@color/colorSafeBlue"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.331" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/emailLoginLOJ"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:autofillHints=""
-
-            android:drawableBottom="@drawable/linha_azul"
-            android:hint="@string/email"
+            android:hint="EMAIL"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
             android:textColor="#000000"
-            android:textColorHint="@color/colorSafeBlue"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.411" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/telefoneLOJ"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:autofillHints=""
-
-            android:drawableBottom="@drawable/linha_azul"
-            android:hint="@string/telefoneCLI"
+            android:hint="TELEFONE"
             android:imeOptions="actionNext"
             android:inputType="phone"
             android:selectAllOnFocus="true"
             android:textColor="#000000"
-            android:textColorHint="@color/colorSafeBlue"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="16sp"
             app:layout_constraintVertical_bias="0.491" />
 
         <EditText
             android:id="@+id/cnpjLOJ"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:autofillHints=""
-
-            android:drawableBottom="@drawable/linha_azul"
-            android:hint="@string/cnpj"
+            android:hint="CNPJ"
             android:imeOptions="actionNext"
             android:inputType="number"
             android:selectAllOnFocus="true"
             android:textColor="#000000"
-            android:textColorHint="@color/colorSafeBlue"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.571" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/enderecoLOJ"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:autofillHints=""
-
-            android:drawableBottom="@drawable/linha_azul"
-            android:hint="@string/cep"
+            android:hint="CEP"
             android:imeOptions="actionNext"
-            android:inputType="number"
+            android:inputType="textPostalAddress"
             android:selectAllOnFocus="true"
             android:textColor="#000000"
-            android:textColorHint="@color/colorSafeBlue"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.651" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/senhaLoginLOJ"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:autofillHints=""
-
-            android:drawableBottom="@drawable/linha_azul"
-            android:hint="@string/senhaCLI"
+            android:hint="SENHA"
             android:imeOptions="actionNext"
             android:inputType="textPassword"
             android:selectAllOnFocus="true"
             android:textColor="#000000"
-            android:textColorHint="@color/colorSafeBlue"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.731" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/confirmarSenhaLOJ"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:autofillHints=""
-
-            android:drawableBottom="@drawable/linha_azul"
-            android:hint="@string/confirmar_senhaCLI"
+            android:hint="CONFIRMAR SENHA"
             android:imeOptions="actionNext"
             android:inputType="textPassword"
             android:selectAllOnFocus="true"
             android:textColor="#000000"
-            android:textColorHint="@color/colorSafeBlue"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.811" />
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/bttnCadastroLOJ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/botao_redondo_solido_azul"
+            android:text="@string/cadastrar_cli"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ja_possui_uma_conta"
+                android:textColor="#6E6E6E"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="abrirLoginLOJ"
+                android:text="@string/fazer_login"
+                android:textColor="#0027FF"
+                android:textSize="18sp" />
+        </LinearLayout>
 
     </LinearLayout>
 

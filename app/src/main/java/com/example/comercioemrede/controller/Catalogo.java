@@ -30,6 +30,16 @@ public class Catalogo {
         databaseReference.child(idUsuario)
                 .child(getKeyProduto())
                 .setValue(this);
+
+        salvarProdutoPublico();
+    }
+    public void salvarProdutoPublico(){
+
+        DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase()
+                .child("catalogo_publico");
+        databaseReference.child(getTipo())
+                .child(getKeyProduto())
+                .setValue(this);
     }
 
     public String getKeyProduto() {

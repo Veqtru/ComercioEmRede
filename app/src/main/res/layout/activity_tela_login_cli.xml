@@ -4,134 +4,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:background="@drawable/wave_bg_2"
     android:screenOrientation="portrait"
     tools:context=".activity.TelaLoginCLI">
 
-    <Button
-        android:id="@+id/bttnLoginCLI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/botao_redondo_solido_azul"
-        android:text="@string/loginCLI"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.900" />
-
-    <TextView
-        android:id="@+id/txtCadastrarCLI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cadastrar"
-        android:textColor="#0027FF"
-        android:textSize="18sp"
-        android:onClick="abrirCadastroCLI"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.777"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954" />
-
-    <TextView
-        android:id="@+id/txtMensagemCLI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Não possui uma conta?"
-        android:textColor="#6E6E6E"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.264"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954" />
-
-
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="461dp"
-        android:layout_height="240dp"
-        android:contentDescription="@string/bgRC"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/wave_bg_2" />
-
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="299sp"
-        android:layout_height="147sp"
-        android:contentDescription="@string/logoRC"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.027"
         app:srcCompat="@drawable/logon" />
 
-    <EditText
-        android:id="@+id/emailLoginCLI"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints=""
-
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/email"
-        android:imeOptions="actionNext"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/botao_redondo_solido"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.400" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-    <EditText
-        android:id="@+id/senhaLoginCLI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
+        <EditText
+            android:id="@+id/emailLoginCLI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:autofillHints=""
+            android:hint="EMAIL"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="true"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+        <EditText
+            android:id="@+id/senhaLoginCLI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:autofillHints=""
+            android:hint="SENHA"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
+            android:textColor="#000000"
+            android:textSize="16sp" />
 
-        android:drawableBottom="@drawable/linha_azul"
-        android:hint="@string/senhaCLI"
-        android:imeOptions="actionNext"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        android:textColor="#000000"
-        android:textColorHint="@color/colorSafeBlue"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailLoginCLI"
-        app:layout_constraintVertical_bias="0.035" />
+        <TextView
+            android:id="@+id/txtEsqueciLOJ"
+            android:text="@string/esqueceu_a_senha"
+            android:onClick="recuperarSenha"
+            android:layout_gravity="right"
+            android:textColor="#0027FF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/txtEsqueciCLI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:text="@string/esqueceu_a_senha"
-        android:onClick="recuperarSenha"
-        android:textColor="#0027FF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.907"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/senhaLoginCLI"
-        app:layout_constraintVertical_bias="0.0" />
+
+
+        <Button
+            android:id="@+id/bttnLoginCLI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:background="@drawable/botao_redondo_solido_azul"
+            android:text="@string/loginLOJ"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/n_o_possui_um_conta"
+                android:textColor="#6E6E6E"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="abrirCadastroCLI"
+                android:text="@string/cadastrar"
+                android:textColor="#0027FF"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

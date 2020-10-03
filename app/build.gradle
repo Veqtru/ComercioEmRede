@@ -44,6 +44,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:19.1.1'
 
     implementation 'com.github.BlackCat27:CurrencyEditText:2.0.2'
+    implementation 'com.github.d-max:spots-dialog:1.1@aar'
 
 }
 apply plugin: 'com.google.gms.google-services'
