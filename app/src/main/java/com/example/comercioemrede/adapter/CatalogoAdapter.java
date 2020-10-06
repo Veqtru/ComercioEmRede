@@ -1,20 +1,26 @@
 package com.example.comercioemrede.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.comercioemrede.R;
+import com.example.comercioemrede.activity.TelaEditarPRO;
+import com.example.comercioemrede.activity.TelaLoginCLI;
+import com.example.comercioemrede.activity.TelaLoginLOJ;
 import com.example.comercioemrede.controller.Catalogo;
 import com.example.comercioemrede.fragment.MeusProdutos;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +33,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.MyViewHolder> {
+public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.MyViewHolder>{
 
     private List<Catalogo> catalogos;
     private Context context;
@@ -43,6 +49,7 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.MyView
         View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_catalogo, parent, false);
         return new MyViewHolder( item );
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
@@ -69,6 +76,8 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.MyView
         ImageView foto;
         CardView cardViewPRO;
 
+
+
         public MyViewHolder(View itemView){
             super(itemView);
 
@@ -76,6 +85,7 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.MyView
             preco = itemView.findViewById(R.id.edtPrecoPRO);
             foto = itemView.findViewById(R.id.imgProduto);
             cardViewPRO = itemView.findViewById(R.id.cardViewPRO);
+
 
         }
 

@@ -3,15 +3,15 @@ package com.example.comercioemrede.controller;
 import com.example.comercioemrede.helper.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Catalogo {
+public class Catalogo implements Serializable {
 
     private String keyProduto;
     private String nome;
     private String tipo;
     private String preco;
-    private String urlImage;
     private String oferta;
     private String validadeOferta;
     private List<String> fotos;
@@ -40,6 +40,28 @@ public class Catalogo {
         databaseReference.child(getTipo())
                 .child(getKeyProduto())
                 .setValue(this);
+    }
+
+    public void remover(){
+
+        String idUsuario = ConfiguracaoFirebase.getIdUsuario();
+        DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase()
+                .child("catalogo")
+                .child(idUsuario)
+                .child(getKeyProduto());
+
+        databaseReference.removeValue();
+        removerProdutoPublico();
+    }
+
+    public void removerProdutoPublico(){
+
+        DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase()
+                .child("catalogo publico")
+                .child(getTipo())
+                .child(getKeyProduto());
+
+        databaseReference.removeValue();
     }
 
     public String getKeyProduto() {
@@ -72,14 +94,6 @@ public class Catalogo {
 
     public void setPreco(String preco) {
         this.preco = preco;
-    }
-
-    public String getUrlImage() {
-        return urlImage;
-    }
-
-    public void setUrlImage(String urlImage) {
-        this.urlImage = urlImage;
     }
 
     public String getOferta() {

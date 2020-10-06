@@ -2,6 +2,8 @@ package com.example.comercioemrede.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.comercioemrede.R;
+import com.google.android.material.appbar.AppBarLayout;
 
 
 public class Favoritos extends Fragment {
@@ -18,6 +21,7 @@ public class Favoritos extends Fragment {
 
     private String mParam1;
     private String mParam2;
+
 
     public Favoritos() {
     }
@@ -38,6 +42,8 @@ public class Favoritos extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        ((AppCompatActivity) getActivity()).findViewById(R.id.ConstraintLayoutBar).setVisibility(View.GONE);
+        ((AppCompatActivity) getActivity()).findViewById(R.id.searchViewBar).setVisibility(View.GONE);
     }
 
     @Override
@@ -46,4 +52,10 @@ public class Favoritos extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favoritos, container, false);
     }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
+
 }

@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
-import android.view.Window;
+import android.widget.SearchView;
 
 import com.example.comercioemrede.R;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -43,7 +43,6 @@ public class TelaPrincipal extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.tela_principal, menu);
         return true;
     }
@@ -54,6 +53,7 @@ public class TelaPrincipal extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+
     }
     public void redirectCadastro(View view){
         Intent it = new Intent(TelaPrincipal.this, RedirectCadastro.class);
@@ -63,4 +63,5 @@ public class TelaPrincipal extends AppCompatActivity {
         Intent it = new Intent(TelaPrincipal.this, RedirectLogin.class);
         startActivity(it);
     }
+
 }

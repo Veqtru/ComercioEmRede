@@ -4,8 +4,7 @@
     package="com.example.comercioemrede">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -17,6 +16,7 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.TelaEditarPRO"></activity>
         <activity android:name=".activity.RedirectLogin" />
         <activity android:name=".activity.RedirectCadastro" />
         <activity
@@ -31,7 +31,7 @@
             android:label="Cadastrar Produtos"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ActionBar"
-            tools:ignore="LockedOrientationActivity"/>
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".activity.TelaLoginLOJ"
             android:screenOrientation="portrait"

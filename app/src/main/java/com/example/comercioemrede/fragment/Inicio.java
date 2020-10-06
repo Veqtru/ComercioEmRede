@@ -2,14 +2,23 @@ package com.example.comercioemrede.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.SearchView;
 
 import com.example.comercioemrede.R;
+import com.google.android.material.appbar.AppBarLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +34,9 @@ public class Inicio extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ConstraintLayout cc;
+    private SearchView sv;
+
 
     public Inicio() {
         // Required empty public constructor
@@ -55,6 +67,8 @@ public class Inicio extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        ((AppCompatActivity) getActivity()).findViewById(R.id.ConstraintLayoutBar).setVisibility(View.VISIBLE);
+        ((AppCompatActivity) getActivity()).findViewById(R.id.searchViewBar).setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -67,6 +81,8 @@ public class Inicio extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        
+
+
     }
+
 }

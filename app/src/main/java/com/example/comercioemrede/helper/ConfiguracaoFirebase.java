@@ -33,14 +33,6 @@ public class ConfiguracaoFirebase {
         return referenciaAutenticacao;
     }
 
-    /*public static FirebaseStorage getFirebaseStorage() {
-        if (storage == null) {
-            storage = FirebaseStorage.getInstance();
-        }
-
-        return storage;
-    }*/
-
     public static StorageReference getFirebaseStorage() {
         if (referenciaStorage == null) {
             referenciaStorage = FirebaseStorage.getInstance().getReference();
