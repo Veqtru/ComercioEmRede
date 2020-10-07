@@ -16,7 +16,11 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.TelaEditarPRO"></activity>
+        <activity
+            android:name=".activity.TelaEditarPRO"
+            android:label="Editar Produto"
+            android:theme="@style/AppTheme.ActionBar"/>
+
         <activity android:name=".activity.RedirectLogin" />
         <activity android:name=".activity.RedirectCadastro" />
         <activity
@@ -28,7 +32,7 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".activity.TelaCadastroPRO"
-            android:label="Cadastrar Produtos"
+            android:label="Cadastrar Produto"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ActionBar"
             tools:ignore="LockedOrientationActivity" />

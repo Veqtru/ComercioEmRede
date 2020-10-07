@@ -138,10 +138,12 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
         String tipo = spTipoPRO.getSelectedItem().toString();
         String nome = edtNomePRO.getText().toString();
         String preco = edtPrecoPRO.getText().toString();
+        String descricao = edtDescricaoPRO.getText().toString();
         Catalogo catalogo = new Catalogo();
         catalogo.setNome( nome );
         catalogo.setTipo( tipo );
         catalogo.setPreco( preco );
+        catalogo.setDescricao( descricao );
 
         return catalogo;
     }
@@ -155,7 +157,11 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
             if ( !catalogo.getTipo().isEmpty() ){
                 if ( !catalogo.getNome().isEmpty() ){
                     if ( !preco.isEmpty() && !preco.equals("0") ){
-                        cadastrarProduto();
+                        if (!catalogo.getDescricao().isEmpty()){
+                            cadastrarProduto();
+                        }else {
+                            exibirMensagemErro("Preencha o campo descrição!");
+                        }
                     }else {
                         exibirMensagemErro("Preencha o campo preço!");
                     }
@@ -233,6 +239,7 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
         edtDescricaoPRO = findViewById(R.id.edtDescricaoPRO);
         edtPrecoPRO = findViewById(R.id.edtPrecoPRO);
         spTipoPRO = findViewById(R.id.spTipoPRO);
+        edtDescricaoPRO = findViewById(R.id.edtDescricaoPRO);
         imgCadastro1 = findViewById(R.id.imgCadastro1);
         imgCadastro2 = findViewById(R.id.imgCadastro2);
         imgCadastro3 = findViewById(R.id.imgCadastro3);

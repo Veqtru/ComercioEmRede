@@ -48,8 +48,6 @@ public class MeusProdutos extends Fragment {
     private CatalogoAdapter catalogoAdapter;
     private DatabaseReference produtoUsuarioRef;
     private Catalogo catalogo;
-    private Button excluir;
-    private Button editar;
     private AlertDialog dialog;
 
     public MeusProdutos(){
@@ -77,14 +75,12 @@ public class MeusProdutos extends Fragment {
                 .child("catalogo")
                 .child( ConfiguracaoFirebase.getIdUsuario() );
 
-        //inicializarComponentes();
         recyclerProdutos = (RecyclerView) getView().findViewById(R.id.recyclerProdutos);
         FloatingActionButton Adicionar = (FloatingActionButton) getView().findViewById(R.id.fabAdicionar);
         Adicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(getActivity(), TelaCadastroPRO.class);
-                //it.putExtra("some","some data");
                 startActivity(it);
             }
         });
@@ -109,22 +105,14 @@ public class MeusProdutos extends Fragment {
                                 Intent it = new Intent(getContext(), TelaEditarPRO.class);
                                 it.putExtra("prod",selecionado);
                                 startActivity(it);
-
-
                             }
 
                             @Override
                             public void onLongItemClick(View view, int position) {
-
                             }
 
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
-                                /*Catalogo anuncioSelecionado = catalogos.get(position);
-                                anuncioSelecionado.remover();*/
-
                             }
                         }
                 )
@@ -162,9 +150,7 @@ public class MeusProdutos extends Fragment {
         });
 
     }
-    /*public void inicializarComponentes(){
-        recyclerProdutos = (RecyclerView) getActivity().findViewById(R.id.recyclerProdutos);
-    }*/
+
 
 }
 

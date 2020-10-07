@@ -49,8 +49,11 @@
 
             <Spinner
                 android:id="@+id/spTipoPRO"
+                style="@style/Widget.AppCompat.Spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:theme="@style/SpinnerTheme" />
 
             <EditText
                 android:id="@+id/edtNomePRO"
@@ -92,7 +95,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="CheckBox" />
+                android:onClick="exibirOferta"
+                android:text="Ativar Oferta" />
 
             <EditText
                 android:id="@+id/edtPrecoOfertaPRO"
@@ -101,6 +105,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bg_edit_text"
                 android:ems="10"
+                android:visibility="gone"
                 android:hint="Preço da oferta"
                 android:inputType="textPersonName"
                 android:padding="10dp" />
@@ -114,15 +119,18 @@
                 android:ems="10"
                 android:hint="Oferta até"
                 android:inputType="textPersonName"
-                android:padding="10dp" />
+                android:onClick="exibirOferta"
+                android:padding="10dp"
+                android:visibility="gone" />
 
             <Button
-                android:id="@+id/btnCadastrarPRO"
+                android:id="@+id/btnSalvarPRO"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/botao_redondo_solido_azul"
-                android:text="CADASTRAR"
+                android:onClick="validarDados"
+                android:text="SALVAR"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>

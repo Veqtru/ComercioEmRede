@@ -13,6 +13,7 @@ public class Catalogo implements Serializable {
     private String tipo;
     private String preco;
     private String oferta;
+    private String Descricao;
     private String validadeOferta;
     private List<String> fotos;
 
@@ -34,6 +35,30 @@ public class Catalogo implements Serializable {
         salvarProdutoPublico();
     }
     public void salvarProdutoPublico(){
+
+        DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase()
+                .child("catalogo_publico");
+        databaseReference.child(getTipo())
+                .child(getKeyProduto())
+                .setValue(this);
+    }
+
+    public void atualizar(){
+
+        remover();
+
+        String idUsuario = ConfiguracaoFirebase.getIdUsuario();
+        DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase()
+                .child("catalogo");
+        databaseReference.child(idUsuario)
+                .child(getKeyProduto())
+                .setValue(this);
+
+        atualizarProdutoPublico();
+    }
+    public void atualizarProdutoPublico(){
+
+        removerProdutoPublico();
 
         DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase()
                 .child("catalogo_publico");
@@ -110,6 +135,14 @@ public class Catalogo implements Serializable {
 
     public void setValidadeOferta(String validadeOferta) {
         this.validadeOferta = validadeOferta;
+    }
+
+    public String getDescricao() {
+        return Descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        Descricao = descricao;
     }
 
     public List<String> getFotos() {
