@@ -42,31 +42,6 @@ public class Catalogo implements Serializable {
                 .child(getKeyProduto())
                 .setValue(this);
     }
-
-    public void atualizar(){
-
-        remover();
-
-        String idUsuario = ConfiguracaoFirebase.getIdUsuario();
-        DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase()
-                .child("catalogo");
-        databaseReference.child(idUsuario)
-                .child(getKeyProduto())
-                .setValue(this);
-
-        atualizarProdutoPublico();
-    }
-    public void atualizarProdutoPublico(){
-
-        removerProdutoPublico();
-
-        DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase()
-                .child("catalogo_publico");
-        databaseReference.child(getTipo())
-                .child(getKeyProduto())
-                .setValue(this);
-    }
-
     public void remover(){
 
         String idUsuario = ConfiguracaoFirebase.getIdUsuario();
