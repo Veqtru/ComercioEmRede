@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.comercioemrede.R;
 
@@ -15,6 +16,9 @@ public class RedirectCadastro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_redirect_cadastro);
+    }
+    public void voltar(View view) {
+        finish(); //finalza a activity porque não tem necessidade de inicializar a fragment novamente :P
     }
 
     public void telaCadastroCLI(View view) {

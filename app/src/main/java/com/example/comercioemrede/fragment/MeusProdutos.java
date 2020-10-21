@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -54,12 +55,12 @@ public class MeusProdutos extends Fragment {
 
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ((AppCompatActivity) getActivity()).findViewById(R.id.ConstraintLayoutBar).setVisibility(View.GONE);
-        ((AppCompatActivity) getActivity()).findViewById(R.id.searchViewBar).setVisibility(View.GONE);
+
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,6 +71,9 @@ public class MeusProdutos extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        ((AppCompatActivity) getActivity()).findViewById(R.id.ConstraintLayoutBar).setVisibility(View.GONE);
+        ((AppCompatActivity) getActivity()).findViewById(R.id.searchViewBar).setVisibility(View.GONE);
 
         produtoUsuarioRef = ConfiguracaoFirebase.getFirebase()
                 .child("catalogo")

@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -70,12 +71,14 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
 
         //Configurações iniciais
         storage = ConfiguracaoFirebase.getFirebaseStorage();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);
+        inicializarComponentes();
+        carregarDadosSpinner();
 
         //Validar permissões
         Permissoes.validarPermissoes(permissoes, this, 1);
 
-        inicializarComponentes();
-        carregarDadosSpinner();
 
     }
     public void cadastrarProduto(){
@@ -274,6 +277,15 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
         });
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish(); //finalza a activity porque não tem necessidade de inicializar a fragment novamente :P
+                break;
+        }
+        return true;
     }
 }
 

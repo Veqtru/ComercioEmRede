@@ -1,138 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/frameLayout"
     tools:context=".activity.TelaEditarPRO">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <ImageView
-                android:id="@+id/imgCadastro1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/padrao" />
-
-            <ImageView
-                android:id="@+id/imgCadastro2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/padrao" />
-
-            <ImageView
-                android:id="@+id/imgCadastro3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/padrao" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical">
-
-            <Spinner
-                android:id="@+id/spTipoPRO"
-                style="@style/Widget.AppCompat.Spinner"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:theme="@style/SpinnerTheme" />
+                android:layout_height="100dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/edtNomePRO"
+                <ImageView
+                    android:id="@+id/imgCadastro1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/padrao" />
+
+                <ImageView
+                    android:id="@+id/imgCadastro2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/padrao" />
+
+                <ImageView
+                    android:id="@+id/imgCadastro3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/padrao" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/bg_edit_text"
-                android:ems="10"
-                android:text=""
-                android:hint="Nome"
-                android:inputType="textPersonName"
-                android:padding="10dp" />
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/spTipoPRO"
+                    style="@style/Widget.AppCompat.Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000" />
+
+                <EditText
+                    android:id="@+id/edtNomePRO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_edit_text"
+                    android:ems="10"
+                    android:hint="Nome"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:text="" />
 
 
-            <com.blackcat.currencyedittext.CurrencyEditText
-                android:id="@+id/edtPrecoPRO"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_edit_text"
-                android:ems="10"
-                android:hint="Preço"
-                android:inputType="textPersonName"
-                android:padding="10dp" />
+                <com.blackcat.currencyedittext.CurrencyEditText
+                    android:id="@+id/edtPrecoPRO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_edit_text"
+                    android:ems="10"
+                    android:hint="Preço"
+                    android:inputType="textPersonName"
+                    android:padding="10dp" />
 
-            <EditText
-                android:id="@+id/edtDescricaoPRO"
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_edit_text"
-                android:ems="10"
-                android:hint="Descrição"
-                android:inputType="textPersonName"
-                android:padding="10dp" />
+                <EditText
+                    android:id="@+id/edtDescricaoPRO"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_edit_text"
+                    android:ems="10"
+                    android:hint="Descrição"
+                    android:inputType="textPersonName"
+                    android:padding="10dp" />
 
-            <CheckBox
-                android:id="@+id/chOfertaPRO"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:onClick="exibirOferta"
-                android:text="Ativar Oferta" />
+                <CheckBox
+                    android:id="@+id/chOfertaPRO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:onClick="exibirOferta"
+                    android:text="Ativar Oferta" />
 
-            <EditText
-                android:id="@+id/edtPrecoOfertaPRO"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_edit_text"
-                android:ems="10"
-                android:visibility="gone"
-                android:hint="Preço da oferta"
-                android:inputType="textPersonName"
-                android:padding="10dp" />
+                <EditText
+                    android:id="@+id/edtPrecoOfertaPRO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_edit_text"
+                    android:ems="10"
+                    android:hint="Preço da oferta"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:visibility="gone" />
 
-            <EditText
-                android:id="@+id/edtValidadeOfertaPRO"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_edit_text"
-                android:ems="10"
-                android:hint="Oferta até"
-                android:inputType="textPersonName"
-                android:onClick="exibirOferta"
-                android:padding="10dp"
-                android:visibility="gone" />
+                <EditText
+                    android:id="@+id/edtValidadeOfertaPRO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_edit_text"
+                    android:ems="10"
+                    android:hint="Oferta até"
+                    android:inputType="textPersonName"
+                    android:onClick="exibirOferta"
+                    android:padding="10dp"
+                    android:visibility="gone" />
 
-            <Button
-                android:id="@+id/btnSalvarPRO"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/botao_redondo_solido_azul"
-                android:onClick="validarDados"
-                android:text="SALVAR"
-                android:textColor="#FFFFFF" />
+                <Button
+                    android:id="@+id/btnSalvarPRO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/botao_redondo_solido_azul"
+                    android:onClick="validarDados"
+                    android:text="SALVAR"
+                    android:textColor="#FFFFFF" />
 
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
@@ -148,4 +155,4 @@
         app:maxImageSize="32dp" />
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>

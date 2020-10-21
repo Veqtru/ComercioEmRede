@@ -7,31 +7,37 @@
         <item
             android:id="@+id/nav_inicio"
             android:icon="@drawable/ic_home"
+            android:visible="true"
             android:title="Início" />
+
+        <item
+            android:id="@+id/nav_produtos"
+            android:icon="@drawable/ic_shopping_basket_black_24dp"
+            android:title="Meus Produtos"
+            android:visible="true" />
+
         <item
             android:id="@+id/nav_perfil"
             android:icon="@drawable/ic_person"
+            android:visible="true"
             android:title="Minha Conta" />
+
         <item
             android:id="@+id/nav_buscar"
             android:icon="@drawable/ic_search"
+            android:visible="true"
             android:title="Buscar" />
+
         <item
-            android:id="@+id/nav_historico"
-            android:icon="@drawable/ic_history"
-            android:title="Histórico" />
-        <item
-            android:id="@+id/nav_favoritos"
+            android:id="@+id/nav_avaliados"
             android:icon="@drawable/ic_favorite"
-            android:title="Favoritos" />
-        <item
-            android:id="@+id/nav_produtos"
-            android:icon="@drawable/ic_person"
-            android:title="Meus Produtos" />
+            android:visible="true"
+            android:title="Avaliados" />
+
         <item
             android:id="@+id/nav_sair"
             android:icon="@drawable/ic_exit"
-            android:title="Sair" />
-
+            android:title="Sair"
+            android:visible="true" />
     </group>
 </menu>

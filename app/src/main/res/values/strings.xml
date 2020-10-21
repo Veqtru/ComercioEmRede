@@ -45,12 +45,12 @@
     <string name="action_settings">Settings</string>
 
 
-    <string name="inicio_second">Início Second</string>
+
     <string name="fragment_inicio">Início</string>
     <string name="fragment_meus_produtos">Meus Produtos</string>
     <string name="fragment_buscar">Buscar</string>
     <string name="fragment_historico">Histórico</string>
-    <string name="fragment_favoritos">Favoritos</string>
+    <string name="fragment_avaliados">Avaliados</string>
     <string name="fragment_perfil">Perfil</string>
 
 
@@ -84,4 +84,5 @@
         <item>NÃO PERECÍVEIS</item>
         <item>PADARIA</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
 </resources>

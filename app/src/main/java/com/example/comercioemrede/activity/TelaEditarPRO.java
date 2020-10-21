@@ -3,6 +3,9 @@ package com.example.comercioemrede.activity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.Manifest;
 import android.app.Activity;
@@ -14,6 +17,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -26,6 +30,7 @@ import com.blackcat.currencyedittext.CurrencyEditText;
 import com.bumptech.glide.Glide;
 import com.example.comercioemrede.R;
 import com.example.comercioemrede.controller.Catalogo;
+import com.example.comercioemrede.fragment.MeusProdutos;
 import com.example.comercioemrede.helper.ConfiguracaoFirebase;
 import com.example.comercioemrede.helper.Permissoes;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -52,7 +57,6 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
     private CurrencyEditText editPreco;
     private Spinner editTipo;
     private ImageView imagem1, imagem2, imagem3;
-    private CheckBox chOferta;
 
 
     List<String> tipo = new ArrayList<String>();
@@ -63,7 +67,6 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
     private String[] permissoes = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE
     };
-    private List<String> fotoRecover = new ArrayList<>();
     private List<String> listaFotosRecuperadas = new ArrayList<>();
     private List<String> listaURLFotos = new ArrayList<>();
 
@@ -74,6 +77,8 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
 
         //Configurações iniciais
         storage = ConfiguracaoFirebase.getFirebaseStorage();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);
         inicializarComponentes();
         carregarDadosSpinner();
 
@@ -86,6 +91,8 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
         editPreco.setText(this.catalogo.getPreco());
         editTipo.setSelection(this.tipo.indexOf(this.catalogo.getTipo()));
         editDescricao.setText(this.catalogo.getDescricao());
+
+
         switch (this.catalogo.getFotos().size()){
             case 3:
                 Glide.with(TelaEditarPRO.this).load(Uri.parse(this.catalogo.getFotos().get(2))).into(imagem3);
@@ -109,6 +116,7 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
             }
         });
     }
+
     public void cadastrarProduto(){
 
         dialog = new SpotsDialog.Builder()
@@ -122,6 +130,10 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
             String urlImagem = listaFotosRecuperadas.get(i);
             int tamanhoLista = listaFotosRecuperadas.size();
             salvarFotoStorage(urlImagem, tamanhoLista, i);
+        }for (int i=0; i == listaFotosRecuperadas.size() && i< this.catalogo.getFotos().size(); i++){
+            String urlImage = this.catalogo.getFotos().get(i);
+            int tamanhoLista = this.catalogo.getFotos().size();
+            salvarFotoStorage(urlImage, tamanhoLista, i);
         }
     }
     private void salvarFotoStorage(String urlString, final int totalFotos, int contador){
@@ -186,7 +198,7 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
 
         catalogo = configurarProduto();
 
-        if ( listaFotosRecuperadas.size() != 0 ){
+        if ( listaFotosRecuperadas.size() != 0 || this.catalogo.getFotos().size() !=0 ){
             if ( !catalogo.getTipo().isEmpty() ){
                 if ( !catalogo.getNome().isEmpty() ){
                     if ( !preco.isEmpty() && !preco.equals("0") ){
@@ -276,7 +288,6 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
     }
     public void inicializarComponentes(){
         editNome  = (EditText) findViewById(R.id.edtNomePRO);
-        chOferta = (CheckBox) findViewById(R.id.chOfertaPRO);
         editDescricao  = (EditText) findViewById(R.id.edtDescricaoPRO);
         editTipo = (Spinner) findViewById(R.id.spTipoPRO);
         editPreco = (CurrencyEditText) findViewById(R.id.edtPrecoPRO);
@@ -332,4 +343,13 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish(); //finalza a activity porque não tem necessidade de inicializar a fragment novamente :P
+                break;
+        }
+        return true;
+    }
 }
