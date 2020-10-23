@@ -45,7 +45,6 @@
     <string name="action_settings">Settings</string>
 
 
-
     <string name="fragment_inicio">Início</string>
     <string name="fragment_meus_produtos">Meus Produtos</string>
     <string name="fragment_buscar">Buscar</string>
@@ -84,5 +83,7 @@
         <item>NÃO PERECÍVEIS</item>
         <item>PADARIA</item>
     </string-array>
+
     <string name="title_activity_maps">Map</string>
+
 </resources>

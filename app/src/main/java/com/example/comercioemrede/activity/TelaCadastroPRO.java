@@ -98,7 +98,7 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
     }
     private void salvarFotoStorage(String urlString, final int totalFotos, int contador){
 
-        final StorageReference imagemProduto = storage.child("imagens")
+       final StorageReference imagemProduto = storage.child("imagens")
                 .child("produtos")
                 .child( catalogo.getKeyProduto() )
                 .child("imagem"+ contador);

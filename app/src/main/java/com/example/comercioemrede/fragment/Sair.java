@@ -39,6 +39,8 @@ public class Sair extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
+
     }
     public void exibirConfirmação(){
         final AlertDialog.Builder magBox = new AlertDialog.Builder(getContext());

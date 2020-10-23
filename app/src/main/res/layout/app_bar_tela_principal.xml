@@ -35,11 +35,11 @@
                 <SearchView
                     android:id="@+id/searchViewBar"
                     android:layout_width="match_parent"
-                    android:visibility="visible"
                     android:layout_height="40dp"
                     android:layout_marginRight="16dp"
                     android:background="@drawable/botao_redondo_solido"
-                    android:searchIcon="@drawable/ic_search_black_24dp" />
+                    android:searchIcon="@drawable/ic_search_black_24dp"
+                    android:visibility="visible" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout

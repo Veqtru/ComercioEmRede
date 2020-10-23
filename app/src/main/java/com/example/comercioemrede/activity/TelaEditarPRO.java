@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -85,14 +86,12 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
         //Validar permissões
         Permissoes.validarPermissoes(permissoes, this, 1);
 
-        //Recupera as informações da Recycler View
+        //Recupera as informações da Recycler View de Meus Produtos
         this.catalogo = (Catalogo) getIntent().getSerializableExtra("prod");
         editNome.setText(this.catalogo.getNome());
         editPreco.setText(this.catalogo.getPreco());
         editTipo.setSelection(this.tipo.indexOf(this.catalogo.getTipo()));
         editDescricao.setText(this.catalogo.getDescricao());
-
-
         switch (this.catalogo.getFotos().size()){
             case 3:
                 Glide.with(TelaEditarPRO.this).load(Uri.parse(this.catalogo.getFotos().get(2))).into(imagem3);
@@ -108,11 +107,8 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
         excluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //excluir dados realtimedatabase
-                catalogo.remover();
-                //excluir fotos do storage
-
-                finish();
+                //excluir
+                exibirConfirmação();
             }
         });
     }
@@ -126,14 +122,18 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
                 .build();
         dialog.show();
 
-        for (int i=0; i < listaFotosRecuperadas.size(); i++){
-            String urlImagem = listaFotosRecuperadas.get(i);
-            int tamanhoLista = listaFotosRecuperadas.size();
-            salvarFotoStorage(urlImagem, tamanhoLista, i);
-        }for (int i=0; i == listaFotosRecuperadas.size() && i< this.catalogo.getFotos().size(); i++){
-            String urlImage = this.catalogo.getFotos().get(i);
-            int tamanhoLista = this.catalogo.getFotos().size();
-            salvarFotoStorage(urlImage, tamanhoLista, i);
+
+        if (listaFotosRecuperadas.size() == 0){
+            catalogo.salvar();
+
+            dialog.dismiss();
+            finish();
+        }else {
+            for (int i=0; i < listaFotosRecuperadas.size(); i++){
+                String urlImagem = listaFotosRecuperadas.get(i);
+                int tamanhoLista = listaFotosRecuperadas.size();
+                salvarFotoStorage(urlImagem, tamanhoLista, i);
+            }
         }
     }
     private void salvarFotoStorage(String urlString, final int totalFotos, int contador){
@@ -341,6 +341,48 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
                 }
                 break;
         }
+    }
+    //exibe a confirmação e exclui o produto
+    public void exibirConfirmação(){
+        AlertDialog.Builder magBox = new AlertDialog.Builder(this);
+        magBox.setTitle("Excluindo...");
+        magBox.setMessage("Tem certeza que deseja excluir esse produto ?");
+        magBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                List<String> listaDeFotos = catalogo.getFotos();
+                for(int i = 0; i < listaDeFotos.size(); i++){
+
+                    StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+                    StorageReference storage;
+
+                    storage = storageReference.child("imagens").child("produtos").child(catalogo.getKeyProduto())
+                            .child("imagem"+i);
+
+                    storage.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(TelaEditarPRO.this, "Produto Excluído", Toast.LENGTH_LONG).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(TelaEditarPRO.this, "pei", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                catalogo.remover();
+                finish();
+            }
+        });
+        magBox.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        magBox.show();
     }
 
     @Override

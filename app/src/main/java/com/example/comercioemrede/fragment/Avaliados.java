@@ -36,6 +36,8 @@ public class Avaliados extends Fragment {
 
         ((AppCompatActivity) getActivity()).findViewById(R.id.ConstraintLayoutBar).setVisibility(View.GONE);
         ((AppCompatActivity) getActivity()).findViewById(R.id.searchViewBar).setVisibility(View.GONE);
+
+
     }
 
 }

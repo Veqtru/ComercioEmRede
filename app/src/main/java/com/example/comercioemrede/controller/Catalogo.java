@@ -2,8 +2,10 @@ package com.example.comercioemrede.controller;
 
 import com.example.comercioemrede.helper.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
 
 public class Catalogo implements Serializable {
@@ -16,6 +18,7 @@ public class Catalogo implements Serializable {
     private String Descricao;
     private String validadeOferta;
     private List<String> fotos;
+
 
     public Catalogo(){
         DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase()
@@ -57,7 +60,7 @@ public class Catalogo implements Serializable {
     public void removerProdutoPublico(){
 
         DatabaseReference databaseReference = ConfiguracaoFirebase.getFirebase()
-                .child("catalogo publico")
+                .child("catalogo_publico")
                 .child(getTipo())
                 .child(getKeyProduto());
 
