@@ -110,7 +110,7 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.MyView
         }
 
     }
-    /*public static String formatValue(double value) {
+    public static String formatValue(double value) {
         int power;
         String formattedNumber = "";
 
@@ -118,6 +118,6 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.MyView
 
 
         return formattedNumber.length()>4 ?  formattedNumber.replaceAll("\\.[0-9]+", "") : formattedNumber;
-    }*/
+    }
 
 }

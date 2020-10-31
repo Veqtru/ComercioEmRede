@@ -25,6 +25,7 @@ import android.widget.SearchView;
 import com.example.comercioemrede.R;
 import com.example.comercioemrede.activity.TelaCadastroPRO;
 import com.example.comercioemrede.activity.TelaEditarPRO;
+import com.example.comercioemrede.activity.TelaInformacaoPoduto;
 import com.example.comercioemrede.adapter.CatalogoAdapter;
 import com.example.comercioemrede.controller.Catalogo;
 import com.example.comercioemrede.helper.ConfiguracaoFirebase;
@@ -90,9 +91,9 @@ public class Inicio extends Fragment {
 
                                 Catalogo selecionado = listacatalogos.get(position);
 
-                                /*Intent it = new Intent(getContext(), TelaEditarPRO.class);
+                                Intent it = new Intent(getContext(), TelaInformacaoPoduto.class);
                                 it.putExtra("prod",selecionado);
-                                startActivity(it);*/
+                                startActivity(it);
                             }
 
                             @Override

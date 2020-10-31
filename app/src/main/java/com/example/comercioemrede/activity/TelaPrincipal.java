@@ -70,8 +70,8 @@ public class TelaPrincipal extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-    public void Maps(View view){
-        Intent it = new Intent(TelaPrincipal.this, TelaLocal.class);
+    public void busca(View view){
+        Intent it = new Intent(TelaPrincipal.this, SearchableActivity.class);
         startActivity(it);
     }
     public void redirectCadastro(View view){

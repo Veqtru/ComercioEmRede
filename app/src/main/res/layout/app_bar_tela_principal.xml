@@ -38,8 +38,7 @@
                     android:layout_height="40dp"
                     android:layout_marginRight="16dp"
                     android:background="@drawable/botao_redondo_solido"
-                    android:clickable="true"
-                    android:onClick="testClick"
+                    android:clickable="false"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -57,6 +56,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="4dp"
+                        android:onClick="busca"
                         android:text="Pesquise aqui"
                         android:textColor="#3F51B5"
                         android:textSize="18sp" />
@@ -86,10 +86,10 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
-                    android:onClick="Maps"
-                    android:text="Buscar produtos perto de..."
-                    android:maxLines="1"
+                    android:clickable="false"
                     android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Buscar produtos perto de..."
                     android:textColor="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
