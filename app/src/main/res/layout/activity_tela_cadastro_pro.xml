@@ -49,7 +49,7 @@
             android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/edtNomePRO"
+            android:id="@+id/txtNomePRO"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -61,7 +61,7 @@
 
 
         <com.blackcat.currencyedittext.CurrencyEditText
-            android:id="@+id/edtPrecoPRO"
+            android:id="@+id/txtPrecoPRO"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

@@ -165,8 +165,8 @@ public class TelaCadastroCLI extends AppCompatActivity {
             edtConfirmarSenha = findViewById(R.id.confirmarSenhaCLI);
             bttnCadastro = findViewById(R.id.bttnCadastroCLI);
 
-
-
-
+    }
+    public void voltar(View view) {
+        finish(); //finalza a activity porque não tem necessidade de inicializar a fragment novamente :P
     }
 }

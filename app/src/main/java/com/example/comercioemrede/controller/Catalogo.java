@@ -17,6 +17,7 @@ public class Catalogo implements Serializable {
     private String oferta;
     private String Descricao;
     private String validadeOferta;
+    private String tempoOferta;
     private List<String> fotos;
 
 

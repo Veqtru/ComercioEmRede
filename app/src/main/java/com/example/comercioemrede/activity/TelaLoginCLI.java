@@ -117,4 +117,7 @@ public class TelaLoginCLI extends AppCompatActivity {
         edtSenha = findViewById(R.id.senhaLoginCLI);
         bttnLogin = findViewById(R.id.bttnLoginCLI);
     }
+    public void voltar(View view) {
+        finish(); //finalza a activity porque não tem necessidade de inicializar a fragment novamente :P
+    }
 }

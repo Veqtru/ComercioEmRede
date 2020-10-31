@@ -3,14 +3,10 @@ package com.example.comercioemrede.activity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-
+import android.content.Context;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -25,25 +21,30 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blackcat.currencyedittext.CurrencyEditText;
 import com.bumptech.glide.Glide;
 import com.example.comercioemrede.R;
 import com.example.comercioemrede.controller.Catalogo;
-import com.example.comercioemrede.fragment.MeusProdutos;
 import com.example.comercioemrede.helper.ConfiguracaoFirebase;
 import com.example.comercioemrede.helper.Permissoes;
+import com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker;
+import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -54,7 +55,8 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
 
     private Catalogo catalogo;
     //catalogo ou produtoSelecionado
-    private EditText editNome, editDescricao;
+    private EditText editNome, editDescricao, editAntigo, editOferta;
+    private TextView editOfertaDate, editOfertaTime;
     private CurrencyEditText editPreco;
     private Spinner editTipo;
     private ImageView imagem1, imagem2, imagem3;
@@ -63,7 +65,7 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
     List<String> tipo = new ArrayList<String>();
 
     private AlertDialog dialog;
-
+    private Context context;
     private StorageReference storage;
     private String[] permissoes = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE
@@ -86,11 +88,13 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
         //Validar permissões
         Permissoes.validarPermissoes(permissoes, this, 1);
 
+
         //Recupera as informações da Recycler View de Meus Produtos
         this.catalogo = (Catalogo) getIntent().getSerializableExtra("prod");
         editNome.setText(this.catalogo.getNome());
         editPreco.setText(this.catalogo.getPreco());
         editTipo.setSelection(this.tipo.indexOf(this.catalogo.getTipo()));
+        editAntigo.setText(editTipo.getSelectedItem().toString());
         editDescricao.setText(this.catalogo.getDescricao());
         switch (this.catalogo.getFotos().size()){
             case 3:
@@ -101,6 +105,31 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
                 Glide.with(TelaEditarPRO.this).load(Uri.parse(this.catalogo.getFotos().get(0))).into(imagem1);
                 break;
         }
+
+        new SingleDateAndTimePickerDialog.Builder(context)
+                .bottomSheet()
+                .curved()
+                .minutesStep(15)
+                .displayHours(true)
+                .displayMinutes(true)
+                .displayMonth(true)
+                .displayYears(true)
+                .displayDaysOfMonth(true)
+                .todayText("aujourd'hui")
+                .displayListener(new SingleDateAndTimePickerDialog.DisplayListener() {
+                    @Override
+                    public void onDisplayed(SingleDateAndTimePicker picker) {
+                        // Retrieve the SingleDateAndTimePicker
+                    }
+
+                })
+                .title("Simple")
+                .listener(new SingleDateAndTimePickerDialog.Listener() {
+                    @Override
+                    public void onDateSelected(Date date) {
+
+                    }
+                }).display();
 
         //Excluir as informações
         FloatingActionButton excluir = findViewById(R.id.fabExcluir);
@@ -124,7 +153,14 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
 
 
         if (listaFotosRecuperadas.size() == 0){
+
             catalogo.salvar();
+
+            DatabaseReference dbr = FirebaseDatabase.getInstance().getReference();
+            DatabaseReference dBR;
+
+            dBR = dbr.child("catalago_publico").child(editAntigo.getText().toString()).child(catalogo.getKeyProduto());
+            dBR.removeValue();
 
             dialog.dismiss();
             finish();
@@ -160,6 +196,7 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
 
                         if ( totalFotos == listaURLFotos.size() ){
                             catalogo.setFotos( listaURLFotos );
+
                             catalogo.salvar();
 
                             dialog.dismiss();
@@ -179,10 +216,15 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
     }
     public Catalogo configurarProduto(){
 
+        String oferta = editOferta.getText().toString();
+        String date= editOfertaDate.getText().toString();
+        String antigo = editAntigo.getText().toString();
         String tipo = editTipo.getSelectedItem().toString();
         String nome = editNome.getText().toString();
-        String preco = editPreco.getText().toString();
+        String preco = String.valueOf(editPreco.getRawValue());
         String descricao = editDescricao.getText().toString();
+        catalogo.setOferta( oferta );
+        catalogo.setValidadeOferta( date );
         catalogo.setNome( nome );
         catalogo.setTipo( tipo );
         catalogo.setPreco( preco );
@@ -195,6 +237,7 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
     public void validarDados(View view){
 
         String preco = String.valueOf(editPreco.getRawValue());
+
 
         catalogo = configurarProduto();
 
@@ -268,14 +311,15 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
     }
     public void carregarDadosSpinner(){
         this.tipo.clear();
-        this.tipo.add("Bebidas");
-        this.tipo.add( "Carnes");
-        this.tipo.add( "Guloseimas");
-        this.tipo.add( "Higiene");
-        this.tipo.add( "Hortifruti");
-        this.tipo.add("Limpeza");
-        this.tipo.add( "Não perecíveis");
+        this.tipo.add( "Açougue" );
+        this.tipo.add( "Bebidas" );
+        this.tipo.add( "Guloseimas" );
+        this.tipo.add( "Higiene" );
+        this.tipo.add( "Hortifruti" );
+        this.tipo.add( "Limpeza" );
+        this.tipo.add( "Mercearia" );
         this.tipo.add( "Padaria");
+        this.tipo.add( "Pets" );
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_spinner_item,
@@ -287,10 +331,13 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
 
     }
     public void inicializarComponentes(){
-        editNome  = (EditText) findViewById(R.id.edtNomePRO);
+        editOferta = (EditText)findViewById(R.id.edtOfertaPRO);
+        editOfertaDate = (TextView)findViewById(R.id.txtOfertaDate);
+        editNome  = (EditText) findViewById(R.id.txtNomePRO);
         editDescricao  = (EditText) findViewById(R.id.edtDescricaoPRO);
+        editAntigo = (EditText) findViewById(R.id.edtAntigo);
         editTipo = (Spinner) findViewById(R.id.spTipoPRO);
-        editPreco = (CurrencyEditText) findViewById(R.id.edtPrecoPRO);
+        editPreco = (CurrencyEditText) findViewById(R.id.txtPrecoPRO);
         imagem1 = findViewById(R.id.imgCadastro1);
         imagem2 = findViewById(R.id.imgCadastro2);
         imagem3 = findViewById(R.id.imgCadastro3);
@@ -333,11 +380,13 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
         switch(view.getId()) {
             case R.id.chOfertaPRO:
                 if (checked) {
-                    findViewById(R.id.edtPrecoOfertaPRO).setVisibility(View.VISIBLE);
-                    findViewById(R.id.edtValidadeOfertaPRO).setVisibility(View.VISIBLE);
+                    findViewById(R.id.txtOfertaTime).setVisibility(View.VISIBLE);
+                    findViewById(R.id.edtOfertaPRO).setVisibility(View.VISIBLE);
+                    findViewById(R.id.txtOfertaDate).setVisibility(View.VISIBLE);
                 } else {
-                    findViewById(R.id.edtPrecoOfertaPRO).setVisibility(View.GONE);
-                    findViewById(R.id.edtValidadeOfertaPRO).setVisibility(View.GONE);
+                    findViewById(R.id.txtOfertaTime).setVisibility(View.GONE);
+                    findViewById(R.id.edtOfertaPRO).setVisibility(View.GONE);
+                    findViewById(R.id.txtOfertaDate).setVisibility(View.GONE);
                 }
                 break;
         }
@@ -368,7 +417,7 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(TelaEditarPRO.this, "pei", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TelaEditarPRO.this, "falha ao excluir, tente novamente", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -389,6 +438,7 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+
                 finish(); //finalza a activity porque não tem necessidade de inicializar a fragment novamente :P
                 break;
         }

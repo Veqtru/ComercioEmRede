@@ -32,14 +32,36 @@
                     app:popupTheme="@style/PopupOverlay"
                     app:titleMargin="0dp" />
 
-                <SearchView
+                <LinearLayout
                     android:id="@+id/searchViewBar"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginRight="16dp"
                     android:background="@drawable/botao_redondo_solido"
-                    android:searchIcon="@drawable/ic_search_black_24dp"
-                    android:visibility="visible" />
+                    android:clickable="true"
+                    android:onClick="testClick"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="1dp"
+                        android:src="@drawable/ic_search_black_24dp" />
+
+                    <TextView
+                        android:id="@+id/txtSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="4dp"
+                        android:text="Pesquise aqui"
+                        android:textColor="#3F51B5"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -60,12 +82,14 @@
                     app:srcCompat="@drawable/ic_place_black_24dp" />
 
                 <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtLocal"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
                     android:onClick="Maps"
                     android:text="Buscar produtos perto de..."
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:textColor="@color/colorWhite"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -73,6 +97,7 @@
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.555" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

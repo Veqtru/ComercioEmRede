@@ -197,5 +197,8 @@ public class TelaCadastroLOJ extends AppCompatActivity {
             edtCnpj = findViewById(R.id.cnpjLOJ);
             edtEndereco = findViewById(R.id.enderecoLOJ);
             bttnCadastro = findViewById(R.id.bttnCadastroLOJ);
-        }
+    }
+    public void voltar(View view) {
+        finish(); //finalza a activity porque não tem necessidade de inicializar a fragment novamente :P
+    }
 }

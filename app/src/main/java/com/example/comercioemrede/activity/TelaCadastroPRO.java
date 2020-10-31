@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -32,8 +31,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -140,12 +137,12 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
 
         String tipo = spTipoPRO.getSelectedItem().toString();
         String nome = edtNomePRO.getText().toString();
-        String preco = edtPrecoPRO.getText().toString();
+        String preco = String.valueOf(edtPrecoPRO.getRawValue());
         String descricao = edtDescricaoPRO.getText().toString();
         Catalogo catalogo = new Catalogo();
         catalogo.setNome( nome );
         catalogo.setTipo( tipo );
-        catalogo.setPreco( preco );
+        catalogo.setPreco( preco);
         catalogo.setDescricao( descricao );
 
         return catalogo;
@@ -226,7 +223,7 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
     public void carregarDadosSpinner(){
 
         String[] tipo = new String[]{
-                "Bebidas", "Carnes", "Guloseimas", "Higiene", "Hortifruti", "Limpeza", "Não perecíveis", "Padaria"
+                "Açougue", "Bebidas", "Guloseimas", "Higiene", "Hortifruti", "Limpeza", "Mercearia", "Padaria", "Pets"
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_spinner_item,
@@ -238,9 +235,9 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
     }
     public void inicializarComponentes() {
 
-        edtNomePRO = findViewById(R.id.edtNomePRO);
+        edtNomePRO = findViewById(R.id.txtNomePRO);
         edtDescricaoPRO = findViewById(R.id.edtDescricaoPRO);
-        edtPrecoPRO = findViewById(R.id.edtPrecoPRO);
+        edtPrecoPRO = findViewById(R.id.txtPrecoPRO);
         spTipoPRO = findViewById(R.id.spTipoPRO);
         edtDescricaoPRO = findViewById(R.id.edtDescricaoPRO);
         imgCadastro1 = findViewById(R.id.imgCadastro1);

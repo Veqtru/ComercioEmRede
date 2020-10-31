@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardViewPRO"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -13,21 +14,47 @@
         android:orientation="horizontal"
         android:padding="8dp">
 
-        <ImageView
-            android:id="@+id/imgProduto"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/padrao" />
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgProduto"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/padrao" />
+
+            <TextView
+                android:id="@+id/txtOfertaPorcentagem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oferta_fundo"
+                android:gravity="center|center_vertical"
+                android:text="50%"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="8dp"
+            android:layout_margin="6dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/edtNomePRO"
+                android:id="@+id/txtNomePRO"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="PEPSI LATA 350ml"
@@ -35,7 +62,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/edtPrecoPRO"
+                android:id="@+id/txtPrecoPRO"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -43,6 +70,25 @@
                 android:textColor="#686868"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtOfertaPreco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="R$ 5,00"
+                android:textColor="#686868"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/txtOfertaValidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="20 d"
+                android:visibility="visible" />
 
 
         </LinearLayout>
