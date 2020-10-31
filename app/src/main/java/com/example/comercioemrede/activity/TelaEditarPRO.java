@@ -3,6 +3,9 @@ package com.example.comercioemrede.activity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.Manifest;
 import android.app.Activity;
@@ -18,10 +21,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.blackcat.currencyedittext.CurrencyEditText;
@@ -30,8 +35,6 @@ import com.example.comercioemrede.R;
 import com.example.comercioemrede.controller.Catalogo;
 import com.example.comercioemrede.helper.ConfiguracaoFirebase;
 import com.example.comercioemrede.helper.Permissoes;
-import com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker;
-import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -43,7 +46,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -91,6 +96,7 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
 
         //Recupera as informações da Recycler View de Meus Produtos
         this.catalogo = (Catalogo) getIntent().getSerializableExtra("prod");
+        editOferta.setText(this.catalogo.getOferta());
         editNome.setText(this.catalogo.getNome());
         editPreco.setText(this.catalogo.getPreco());
         editTipo.setSelection(this.tipo.indexOf(this.catalogo.getTipo()));
@@ -106,30 +112,19 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
                 break;
         }
 
-        new SingleDateAndTimePickerDialog.Builder(context)
-                .bottomSheet()
-                .curved()
-                .minutesStep(15)
-                .displayHours(true)
-                .displayMinutes(true)
-                .displayMonth(true)
-                .displayYears(true)
-                .displayDaysOfMonth(true)
-                .todayText("aujourd'hui")
-                .displayListener(new SingleDateAndTimePickerDialog.DisplayListener() {
-                    @Override
-                    public void onDisplayed(SingleDateAndTimePicker picker) {
-                        // Retrieve the SingleDateAndTimePicker
-                    }
+       editOfertaDate.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               showDateDialog(editOfertaDate);
 
-                })
-                .title("Simple")
-                .listener(new SingleDateAndTimePickerDialog.Listener() {
-                    @Override
-                    public void onDateSelected(Date date) {
-
-                    }
-                }).display();
+           }
+       });
+       editOfertaTime.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               showTimeDialog(editOfertaTime);
+           }
+       });
 
         //Excluir as informações
         FloatingActionButton excluir = findViewById(R.id.fabExcluir);
@@ -140,6 +135,38 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
                 exibirConfirmação();
             }
         });
+    }
+
+    private void showTimeDialog(final TextView editOfertaTime) {
+        final Calendar calendar = Calendar.getInstance();
+        TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
+                calendar.set(Calendar.MINUTE,minute);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat( "HH:mm" );
+
+                editOfertaTime.setText(simpleDateFormat.format(calendar.getTime()));
+            }
+        };
+        new TimePickerDialog(TelaEditarPRO.this, timeSetListener, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE),false).show();
+    }
+
+    private void showDateDialog(final TextView editOfertaDate) {
+        final Calendar calendar = Calendar.getInstance();
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                calendar.set(Calendar.YEAR,year);
+                calendar.set(Calendar.MONTH,month);
+                calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat( "yy-MM-dd" );
+
+                editOfertaDate.setText(simpleDateFormat.format(calendar.getTime()));
+
+            }
+        };
+        new DatePickerDialog(TelaEditarPRO.this, dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 
     public void cadastrarProduto(){
@@ -217,14 +244,16 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
     public Catalogo configurarProduto(){
 
         String oferta = editOferta.getText().toString();
+        String time = editOfertaTime.getText().toString();
         String date= editOfertaDate.getText().toString();
         String antigo = editAntigo.getText().toString();
         String tipo = editTipo.getSelectedItem().toString();
         String nome = editNome.getText().toString();
-        String preco = String.valueOf(editPreco.getRawValue());
+        String preco = editPreco.getText().toString();
         String descricao = editDescricao.getText().toString();
         catalogo.setOferta( oferta );
         catalogo.setValidadeOferta( date );
+        catalogo.setTempoOferta( time );
         catalogo.setNome( nome );
         catalogo.setTipo( tipo );
         catalogo.setPreco( preco );
@@ -333,6 +362,7 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
     public void inicializarComponentes(){
         editOferta = (EditText)findViewById(R.id.edtOfertaPRO);
         editOfertaDate = (TextView)findViewById(R.id.txtOfertaDate);
+        editOfertaTime = (TextView)findViewById(R.id.txtOfertaTime);
         editNome  = (EditText) findViewById(R.id.txtNomePRO);
         editDescricao  = (EditText) findViewById(R.id.edtDescricaoPRO);
         editAntigo = (EditText) findViewById(R.id.edtAntigo);
@@ -433,6 +463,7 @@ public class TelaEditarPRO extends AppCompatActivity implements View.OnClickList
         });
         magBox.show();
     }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

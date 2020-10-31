@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.comercioemrede.R;
 import com.example.comercioemrede.controller.Catalogo;
-import com.github.rtoshiro.util.format.MaskFormatter;
+
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.squareup.picasso.Picasso;
@@ -29,6 +29,7 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.MyView
 
     private List<Catalogo> catalogos;
     private Context context;
+
 
     public CatalogoAdapter(List<Catalogo> catalogos, Context context) {
         this.catalogos = catalogos;
@@ -51,19 +52,30 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.MyView
         Catalogo catalogo = catalogos.get(position);
 
         holder.nome.setText( catalogo.getNome() );
-        holder.preco.setText("R$ "+catalogo.getPreco() );
+        holder.preco.setText( catalogo.getPreco() );
 
 
         if (catalogo.getOferta() == null){
             holder.ofertaPreco.setVisibility(View.GONE);
             holder.ofertaPorcentagem.setVisibility(View.GONE);
             holder.ofertaValidade.setVisibility(View.GONE);
+            holder.preco.setPaintFlags( holder.preco.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
         }else {
-            Double precoA = Double. parseDouble(catalogo.getPreco());
+            String precoA = catalogo.getPreco();
+            //precoA = precoA.replaceAll("[^\\d.]", "");
+
+
+            precoA = precoA.trim().substring(2).replace(".","").replace(',','.');
+            Double precoB = Double. parseDouble(precoA);
+
             Double ofertaA = Double. parseDouble("0."+catalogo.getOferta());
-            Double desconto =  precoA * ofertaA;
-            Double precoOferta = precoA - desconto;
-            holder.ofertaPreco.setText("R$ "+Double.toString(precoOferta) );
+            Double desconto =  precoB * ofertaA;
+            Double precoOferta = precoB - desconto;
+            String precoOfertaB = Double.toString(precoOferta);
+            precoOfertaB = precoOfertaB.replace('.',',');
+
+
+            holder.ofertaPreco.setText("R$ "+precoOfertaB );
             holder.ofertaPorcentagem.setText(catalogo.getOferta()+"%" );
             holder.ofertaValidade.setText( catalogo.getValidadeOferta() );
             holder.preco.setPaintFlags(holder.preco.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
@@ -110,14 +122,4 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.MyView
         }
 
     }
-    public static String formatValue(double value) {
-        int power;
-        String formattedNumber = "";
-
-        NumberFormat formatter = new DecimalFormat("###,###,###.##");
-
-
-        return formattedNumber.length()>4 ?  formattedNumber.replaceAll("\\.[0-9]+", "") : formattedNumber;
-    }
-
 }

@@ -132,31 +132,30 @@
 
                             <TextView
                                 android:id="@+id/txtOfertaDate"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/bg_edit_text"
                                 android:ems="10"
-                                android:hint="Selecione uma Data"
                                 android:inputType="textPersonName"
-                                android:onClick="exibirOferta"
                                 android:padding="10dp"
+                                android:text="Selecione uma Data"
                                 android:textSize="18sp"
                                 android:visibility="gone" />
 
                             <TextView
                                 android:id="@+id/txtOfertaTime"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
                                 android:layout_marginTop="16dp"
                                 android:layout_weight="1"
                                 android:background="@drawable/bg_edit_text"
                                 android:ems="10"
-                                android:hint="Selecione um horario"
                                 android:inputType="textPersonName"
-                                android:onClick="exibirOferta"
                                 android:padding="10dp"
+                                android:text="Selecione um horario"
                                 android:textSize="18sp"
                                 android:visibility="gone" />
                         </LinearLayout>

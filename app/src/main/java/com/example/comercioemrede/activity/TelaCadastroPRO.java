@@ -137,7 +137,7 @@ public class TelaCadastroPRO extends AppCompatActivity implements View.OnClickLi
 
         String tipo = spTipoPRO.getSelectedItem().toString();
         String nome = edtNomePRO.getText().toString();
-        String preco = String.valueOf(edtPrecoPRO.getRawValue());
+        String preco = edtPrecoPRO.getText().toString();
         String descricao = edtDescricaoPRO.getText().toString();
         Catalogo catalogo = new Catalogo();
         catalogo.setNome( nome );

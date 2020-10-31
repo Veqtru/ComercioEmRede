@@ -13,6 +13,7 @@ public class Catalogo implements Serializable {
     private String keyProduto;
     private String nome;
     private String tipo;
+    private String precoMask;
     private String preco;
     private String oferta;
     private String Descricao;
@@ -130,5 +131,21 @@ public class Catalogo implements Serializable {
 
     public void setFotos(List<String> fotos) {
         this.fotos = fotos;
+    }
+
+    public String getTempoOferta() {
+        return tempoOferta;
+    }
+
+    public void setTempoOferta(String tempoOferta) {
+        this.tempoOferta = tempoOferta;
+    }
+
+    public String getPrecoMask() {
+        return precoMask;
+    }
+
+    public void setPrecoMask(String precoMask) {
+        this.precoMask = precoMask;
     }
 }
